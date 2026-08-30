@@ -1,3 +1,32 @@
+## Semantic lookup before refusal
+
+A `.def` entry is a contract for name, aliases, arity, and runtime requirement. It is not a complete
+description of all semantic effects.
+
+Before answering that BaselScript cannot perform a requested operation:
+
+1. identify the matching task route
+2. read its semantic `knowledge/*.md` file
+3. inspect the current `.def`
+4. check documented system/output variables and side effects
+5. check whether CURRENT primitives can be composed into the requested result
+6. use confirmed real-script/runtime patterns when available
+
+Do not equate:
+
+```text
+"no dedicated one-step function"
+```
+
+with:
+
+```text
+"unsupported in BaselScript"
+```
+
+Example: current weekday text is available through `#_current_weekday_name` after `$date()`, even
+though there is no separate function named `weekday_name`.
+
 # BaselScript Generation Rules
 
 ## Goal

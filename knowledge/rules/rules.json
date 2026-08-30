@@ -1,0 +1,110 @@
+{
+  "schema": "baselscript-rules-v1",
+  "rules": [
+    {
+      "id": "START_SCENE_1",
+      "status": "stable",
+      "severity": "required",
+      "scope": [
+        "script",
+        "scene_navigation",
+        "multistep_form"
+      ],
+      "rule": "Первая исполняемая сцена приложения должна быть SCENE=1.",
+      "reason": "Runtime автоматически начинает выполнение со сцены 1."
+    },
+    {
+      "id": "MULTISTEP_PRESERVE_STATE",
+      "status": "stable",
+      "severity": "required",
+      "scope": [
+        "multistep_form"
+      ],
+      "rule": "Переходы Next и Back внутри одного workflow не должны очищать уже введённые значения."
+    },
+    {
+      "id": "MULTISTEP_INITIALIZE_ONCE",
+      "status": "stable",
+      "severity": "required",
+      "scope": [
+        "multistep_form"
+      ],
+      "rule": "Состояние многошаговой формы инициализируется только при начале нового workflow."
+    },
+    {
+      "id": "MULTISTEP_RESET_ON_COMPLETE",
+      "status": "stable",
+      "severity": "recommended",
+      "scope": [
+        "multistep_form"
+      ],
+      "rule": "Состояние workflow сбрасывается после успешного Save или явного New/Cancel."
+    },
+    {
+      "id": "NO_NESTED_IF",
+      "status": "stable",
+      "severity": "required",
+      "scope": [
+        "conditions"
+      ],
+      "rule": "Вложенные IF в текущем BaselScript не поддерживаются."
+    },
+    {
+      "id": "CONDITION_DOUBLE_AND_SUPPORTED",
+      "status": "stable",
+      "severity": "required",
+      "scope": [
+        "conditions"
+      ],
+      "rule": "Оператор && является допустимым и не должен запрещаться."
+    },
+    {
+      "id": "CONDITION_NO_OUTER_PARENS",
+      "status": "stable",
+      "severity": "required",
+      "scope": [
+        "conditions"
+      ],
+      "rule": "Не использовать наружные скобки вокруг всего IF-условия: if (1==1) недопустимо."
+    },
+    {
+      "id": "SECTION_ACTION_SHARED_NAMESPACE",
+      "status": "stable",
+      "severity": "required",
+      "scope": [
+        "references"
+      ],
+      "rule": "SECTION и ACTION используют общий callable namespace; cross-scene callable references допустимы."
+    },
+    {
+      "id": "LEGACY_NONE_TARGETS",
+      "status": "stable",
+      "severity": "required",
+      "scope": [
+        "references"
+      ],
+      "rule": "sec=none и act=none являются допустимыми legacy no-op только для SECTION/ACTION."
+    },
+    {
+      "id": "UI_USE_DEFAULTS",
+      "status": "stable",
+      "severity": "recommended",
+      "scope": [
+        "ui",
+        "form"
+      ],
+      "rule": "Для стандартных controls не задавать без необходимости h/s/style/gravity; использовать UI defaults из parameter files."
+    },
+    {
+      "id": "UI_FIELD_LABEL_GAP",
+      "status": "candidate",
+      "severity": "recommended",
+      "scope": [
+        "ui",
+        "form_generation"
+      ],
+      "rule": "При генерации layout учитывать field_label_gap между label и input.",
+      "formula": "input_y = label_y + label_height + field_label_gap"
+    }
+  ]
+}

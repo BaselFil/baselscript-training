@@ -179,13 +179,29 @@ datetime
 diff_days
 diff_months
 diff_dates
+day_of_week
+day_of_year
+day_of_date
+month_of_date
+year_of_date
+week_of_date
 ```
+
+For exact date/time semantics, current-date side effects, weekday names, and the difference between
+`$day_of_week(...)` and `#_current_weekday`, read:
+
+```text
+date_time_status.md
+```
+
+Important: `functions.def` describes function identity and parameter count, but not every side effect.
+For example, current-date functions populate `#_current_weekday_name`.
 
 Example:
 
 ```baselscript
-#edit_datetime=$date("YYYY-MM-dd HH:mm:ss")
-#edit_date=$substr(#edit_datetime,0,10)
+#current_date=$date()
+#weekday_name=#_current_weekday_name
 ```
 
 ### File/directory functions

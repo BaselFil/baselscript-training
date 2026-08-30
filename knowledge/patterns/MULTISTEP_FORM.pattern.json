@@ -1,0 +1,86 @@
+{
+  "schema": "baselscript-pattern-v1",
+  "id": "MULTISTEP_FORM",
+  "status": "candidate",
+  "purpose": "Разделить ввод одной логической сущности на несколько экранов без потери состояния.",
+  "intent": [
+    "wizard",
+    "multi-step form",
+    "multi-screen input",
+    "form split across screens"
+  ],
+  "requires": {
+    "blocks": [
+      "SCENE",
+      "FORM",
+      "SECTION"
+    ],
+    "features": [
+      "scene navigation",
+      "persistent variables"
+    ]
+  },
+  "rules": [
+    "START_SCENE_1",
+    "MULTISTEP_PRESERVE_STATE",
+    "MULTISTEP_INITIALIZE_ONCE",
+    "MULTISTEP_RESET_ON_COMPLETE"
+  ],
+  "structure": [
+    {
+      "step": 1,
+      "scene": "1",
+      "actions": [
+        "Next"
+      ]
+    },
+    {
+      "step": 2,
+      "scene": "<step2>",
+      "actions": [
+        "Back",
+        "Next"
+      ]
+    },
+    {
+      "step": 3,
+      "scene": "<step3>",
+      "actions": [
+        "Back",
+        "Save"
+      ]
+    }
+  ],
+  "invariants": [
+    "Первая сцена workflow — SCENE=1.",
+    "Next сохраняет введённые значения.",
+    "Back сохраняет введённые значения.",
+    "Промежуточные сцены не переинициализируют поля.",
+    "Save обычно выполняется после последнего шага."
+  ],
+  "variants": [
+    "2 screens",
+    "3 screens",
+    "final confirmation",
+    "save and open list"
+  ],
+  "relatedPatterns": [
+    "FORM_VALIDATION",
+    "PORTRAIT_LANDSCAPE_FORM",
+    "FORM_SAVE_LIST"
+  ],
+  "examples": [
+    {
+      "id": "FORM_MULTISTEP_3",
+      "file": "../../examples/forms/form_multistep_3screens.script",
+      "status": "candidate"
+    }
+  ],
+  "promotionCriteria": [
+    "example passes ScriptValidator",
+    "example runs on Windows",
+    "Back/Next preserves values",
+    "Save inserts exactly one row",
+    "workflow reset after completed Save works"
+  ]
+}
