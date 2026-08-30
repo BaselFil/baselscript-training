@@ -1,1 +1,8 @@
-
+{
+  "product": "BaselScript",
+  "schema_version": 1,
+  "training_version": 1,
+  "bundle": {
+    "file": "BaselScript_Training_Current.zip"
+  }
+}
