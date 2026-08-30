@@ -2,7 +2,15 @@
   "product": "BaselScript",
   "schema_version": 1,
   "training_version": 1,
-  "bundle": {
-    "file": "BaselScript_Training_Current.zip"
-  }
+  "date": "2026-08-30",
 
+  "repository": "https://github.com/BaselFil/baselscript-training",
+
+  "manifest": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/manifest.json",
+
+  "bundle": {
+    "tag": "training-v1",
+    "file": "BaselScript_Training_Current.zip",
+    "url": "https://github.com/BaselFil/baselscript-training/releases/latest/download/BaselScript_Training_Current.zip"
+  }
+}
