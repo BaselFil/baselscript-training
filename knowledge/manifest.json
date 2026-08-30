@@ -1,0 +1,450 @@
+{
+  "product": "BaselScript",
+  "schema_version": 1,
+  "training_version": 10,
+  "status": "current",
+  "date": "2026-08-30",
+  "repository": {
+    "owner": "BaselFil",
+    "name": "baselscript-training",
+    "url": "https://github.com/BaselFil/baselscript-training",
+    "branch": "main"
+  },
+  "manifest": {
+    "url": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/manifest.json"
+  },
+  "entry_point": {
+    "path": "BASELSCRIPT_AI_CONTEXT.md",
+    "required": true
+  },
+  "language": {
+    "directory": "language",
+    "machine_readable": {
+      "path": "language/baselscript-language.json",
+      "required": true,
+      "generated": true,
+      "hand_edit": false
+    },
+    "definitions": [
+      {
+        "path": "language/actions.def",
+        "required": true
+      },
+      {
+        "path": "language/blocks.def",
+        "required": true
+      },
+      {
+        "path": "language/conditions.def",
+        "required": true
+      },
+      {
+        "path": "language/functions.def",
+        "required": true
+      },
+      {
+        "path": "language/scene.def",
+        "required": true
+      }
+    ]
+  },
+  "snapshot": {
+    "loaded": true,
+    "loadErrors": "",
+    "functions": 247,
+    "actions": 126,
+    "blocks": 7,
+    "scenes": 1,
+    "conditions": 16
+  },
+  "knowledge": [
+    {
+      "path": "knowledge/language_status.md",
+      "required": true,
+      "scope": "baseline"
+    },
+    {
+      "path": "knowledge/generation_rules.md",
+      "required": true,
+      "scope": "baseline"
+    },
+    {
+      "path": "knowledge/regression_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "control_flow_testing"
+    },
+    {
+      "path": "knowledge/testing_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "control_flow_testing"
+    },
+    {
+      "path": "knowledge/call_execution_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "call_execution"
+    },
+    {
+      "path": "knowledge/ui_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "ui"
+    },
+    {
+      "path": "knowledge/files_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "files_directories"
+    },
+    {
+      "path": "knowledge/database_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "database_sql"
+    },
+    {
+      "path": "knowledge/security_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "security_crypto"
+    },
+    {
+      "path": "knowledge/functions_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "functions"
+    },
+    {
+      "path": "knowledge/graphics_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "graphics"
+    },
+    {
+      "path": "knowledge/charts_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "charts"
+    },
+    {
+      "path": "knowledge/network_device_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "network_device_media"
+    },
+    {
+      "path": "knowledge/script_meta_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "script_meta"
+    },
+    {
+      "path": "knowledge/weak_actions_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "weak_actions"
+    },
+    {
+      "path": "knowledge/date_time_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "date_time"
+    }
+  ],
+  "regression": {
+    "results": "regression/RUNTIME_CONFIRMED_RESULTS.md",
+    "directories": {
+      "confirmed": "regression/confirmed",
+      "negative": "regression/negative",
+      "open": "regression/open"
+    }
+  },
+  "usage_policy": {
+    "purpose": [
+      "generate",
+      "validate",
+      "explain",
+      "review",
+      "modify"
+    ],
+    "authoritative_order": [
+      "confirmed current runtime/regression evidence",
+      "language/*.def",
+      "language/baselscript-language.json",
+      "knowledge/*.md",
+      "repeated real script corpus",
+      "rare corpus evidence",
+      "historical/review examples"
+    ],
+    "rules": [
+      "Do not invent unsupported BaselScript syntax.",
+      "Do not hand-edit language/baselscript-language.json.",
+      "If syntax is not confirmed, classify it as unverified."
+    ],
+    "semantic_rule": "Do not declare a task unsupported until the routed semantic reference has been checked for system variables, side effects, and confirmed compositions."
+  },
+  "loading_policy": {
+    "baseline_required": [
+      "BASELSCRIPT_AI_CONTEXT.md",
+      "knowledge/language_status.md",
+      "knowledge/generation_rules.md",
+      "language/baselscript-language.json"
+    ],
+    "route_required": true,
+    "multi_route": true,
+    "semantic_before_refusal": true,
+    "instruction": "Load baseline_required first. Then classify the request into task_routes and load every required_files entry for all matching routes before answering.",
+    "hard_gate_enforcement": true,
+    "reference_loaded_definition": "A task is not considered 'reference loaded' until baseline_required and every file listed in required_files for all matching task_routes with hard_gate=true have been successfully read.",
+    "missing_required_file_behavior": "If any hard-gate required file cannot be loaded, explicitly name the missing file and do not generate BaselScript for that task.",
+    "no_baseline_only_answer": "Do not answer from baseline files alone when a matching hard_gate route exists."
+  },
+  "task_routes": {
+    "graphics": {
+      "match_examples": [
+        "graphics",
+        "graphic",
+        "canvas",
+        "draw",
+        "circle",
+        "ellipse",
+        "rect",
+        "line",
+        "point",
+        "polygon",
+        "arc",
+        "sector",
+        "segment",
+        "image"
+      ],
+      "required_files": [
+        "knowledge/graphics_status.md",
+        "language/actions.def"
+      ],
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    },
+    "charts": {
+      "match_examples": [
+        "chart",
+        "CHART_",
+        "bars",
+        "pie",
+        "donut",
+        "scatter",
+        "lollipop"
+      ],
+      "required_files": [
+        "knowledge/charts_status.md",
+        "language/actions.def"
+      ],
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    },
+    "ui": {
+      "match_examples": [
+        "menu",
+        "list",
+        "form",
+        "dialog",
+        "popupmenu",
+        "tile",
+        "UI"
+      ],
+      "required_files": [
+        "knowledge/ui_status.md",
+        "language/blocks.def",
+        "language/actions.def"
+      ],
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    },
+    "files_directories": {
+      "match_examples": [
+        "file",
+        "directory",
+        "folder",
+        "select file",
+        "import",
+        "export"
+      ],
+      "required_files": [
+        "knowledge/files_status.md",
+        "language/actions.def",
+        "language/functions.def"
+      ],
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    },
+    "database_sql": {
+      "match_examples": [
+        "database",
+        "SQL",
+        "db_use",
+        "table",
+        "record"
+      ],
+      "required_files": [
+        "knowledge/database_status.md",
+        "language/actions.def"
+      ],
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    },
+    "security_crypto": {
+      "match_examples": [
+        "crypto",
+        "encrypt",
+        "decrypt",
+        "security",
+        "access key",
+        "master password"
+      ],
+      "required_files": [
+        "knowledge/security_status.md",
+        "language/actions.def"
+      ],
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    },
+    "functions": {
+      "match_examples": [
+        "function",
+        "$",
+        "string.",
+        "math.",
+        "array.",
+        "date.",
+        "get_message"
+      ],
+      "required_files": [
+        "knowledge/functions_status.md",
+        "language/functions.def"
+      ],
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    },
+    "date_time": {
+      "match_examples": [
+        "date",
+        "time",
+        "weekday",
+        "day of week",
+        "weekday name",
+        "current weekday",
+        "month name",
+        "day_of_week",
+        "#_current_weekday",
+        "#_current_weekday_name",
+        "дата",
+        "время",
+        "день недели",
+        "название дня недели",
+        "текущий день недели"
+      ],
+      "required_files": [
+        "knowledge/date_time_status.md",
+        "knowledge/functions_status.md",
+        "language/functions.def"
+      ],
+      "hard_gate": true,
+      "instruction": "Check system variables and function side effects. Do not refuse merely because there is no one-step convenience function.",
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    },
+    "call_execution": {
+      "match_examples": [
+        "call",
+        "scene",
+        "section",
+        "sec=",
+        "script=",
+        "scr="
+      ],
+      "required_files": [
+        "knowledge/call_execution_status.md",
+        "language/actions.def",
+        "language/blocks.def",
+        "language/scene.def"
+      ],
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    },
+    "control_flow_testing": {
+      "match_examples": [
+        "if",
+        "elseif",
+        "while",
+        "foreach",
+        "for",
+        "break",
+        "continue",
+        "assert",
+        "test_run"
+      ],
+      "required_files": [
+        "knowledge/testing_status.md",
+        "knowledge/regression_status.md",
+        "language/conditions.def",
+        "language/actions.def"
+      ],
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    },
+    "network_device_media": {
+      "match_examples": [
+        "network",
+        "download",
+        "upload",
+        "driver_list",
+        "music",
+        "sound",
+        "notification"
+      ],
+      "required_files": [
+        "knowledge/network_device_status.md",
+        "language/actions.def"
+      ],
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    },
+    "script_meta": {
+      "match_examples": [
+        "merge_all_scripts",
+        "rewrite_all_scripts",
+        "script meta",
+        "script management"
+      ],
+      "required_files": [
+        "knowledge/script_meta_status.md",
+        "language/actions.def"
+      ],
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    },
+    "weak_actions": {
+      "match_examples": [
+        "delay",
+        "trace_full",
+        "trace_as_is",
+        "parsing",
+        "remove",
+        "replace",
+        "update_all_records",
+        "search_dir",
+        "thumbnail",
+        "message_short",
+        "echo",
+        "driver_list",
+        "close"
+      ],
+      "required_files": [
+        "knowledge/weak_actions_status.md",
+        "language/actions.def"
+      ],
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
+    }
+  }
+}
