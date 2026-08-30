@@ -24,38 +24,47 @@
   "language": {
     "machine_readable": {
       "path": "language/baselscript-language.json",
-      "url": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/language/baselscript-language.json",
       "required": true
     },
 
     "definitions": [
       {
         "path": "language/actions.def",
-        "url": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/language/actions.def",
         "required": true
       },
       {
         "path": "language/blocks.def",
-        "url": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/language/blocks.def",
         "required": true
       },
       {
         "path": "language/conditions.def",
-        "url": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/language/conditions.def",
         "required": true
       },
       {
         "path": "language/functions.def",
-        "url": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/language/functions.def",
         "required": true
       },
       {
         "path": "language/scene.def",
-        "url": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/language/scene.def",
         "required": true
       }
     ]
   },
+
+  "knowledge": [
+    {
+      "path": "knowledge/language_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/generation_rules.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/regression_status.md",
+      "required": true
+    }
+  ],
 
   "usage_policy": {
     "purpose": [
@@ -65,14 +74,17 @@
       "review",
       "modify"
     ],
-    "language": "BaselScript",
-    "authoritative_sources": [
+
+    "authoritative_order": [
+      "knowledge/regression_status.md",
+      "knowledge/language_status.md",
       "language/baselscript-language.json",
       "language/actions.def",
       "language/blocks.def",
       "language/conditions.def",
       "language/functions.def",
-      "language/scene.def"
+      "language/scene.def",
+      "knowledge/generation_rules.md"
     ]
   }
 }
