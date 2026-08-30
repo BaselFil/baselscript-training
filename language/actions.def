@@ -39,9 +39,6 @@ copy_array;Exact;None;None;-
 create;Exact;None;None;-
 create_service;Exact;None;None;-
 db_backup;Exact;None;None;-
-db_current;Exact;None;None;-
-db_exists;Exact;None;None;-
-db_path;Exact;None;None;-
 db_restore;Exact;None;None;-
 delay;Exact;None;None;-
 delete;Exact;None;None;-
@@ -51,23 +48,19 @@ driver_list;Exact;None;None;-
 echo;Exact;None;None;-
 exit;Exact;None;None;-
 get;Exact;None;None;-
-grid;Exact;None;None;-
 insert_after;Exact;None;None;-
 insert_before;Exact;None;None;-
 insert_line_after;Exact;None;None;-
 insert_line_before;Exact;None;None;-
 join;Exact;None;None;-
 log;Exact;None;None;-
-mail;Exact;None;None;-
 merge;Exact;None;None;-
 merge_all_scripts;Exact;None;None;-
 message;Exact;None;None;-
 message_long;Exact;None;None;-
 message_short;Exact;None;None;-
 music;Exact;None;None;-
-open;Exact;None;None;-
 parsing;Exact;None;None;-
-pdf;Exact;None;None;-
 preformat;Exact;None;None;-
 print;Exact;None;None;-
 read;Exact;None;None;-
@@ -100,7 +93,6 @@ update_all_records;Exact;None;None;-
 update_file;Exact;None;None;-
 update_records;Exact;None;None;-
 upload;Exact;None;None;-
-vibrate;Exact;None;None;-
 write_record;Exact;None;None;-
 return;Exact;None;None;-
 break;Exact;None;None;-
@@ -149,6 +141,7 @@ SQL_SELECT_AVG;Prefix;None;ApplicationDatabase;SQL_SELECT_AVG <f> FROM <t> [WHER
 SQL_SELECT;Prefix;None;ApplicationDatabase;SQL_SELECT <f> FROM <t> [WHERE(...)] [OUTPUT(<x>)]
 SQL_EXIST;Prefix;None;ApplicationDatabase;SQL_EXIST <t> OUTPUT(<x>)
 CHART_BEGIN;Prefix;None;None;-
+CHART_VALUES;Prefix;None;None;-
 CHART_VALUES_FROM_FILE;Prefix;None;None;-
 CHART_FROM_FILE;Prefix;None;None;-
 CHART_BIND;Prefix;None;None;-

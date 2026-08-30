@@ -3,15 +3,15 @@
   "loaded": true,
   "loadErrors": "",
   "sources": {
-    "functions": "c:/baselscript/system\\functions.def",
-    "actions": "c:/baselscript/system\\actions.def",
-    "blocks": "c:/baselscript/system\\blocks.def",
-    "scene": "c:/baselscript/system\\scene.def",
-    "conditions": "c:/baselscript/system\\conditions.def"
+    "functions": "c:/baselscript/system\\language\\functions.def",
+    "actions": "c:/baselscript/system\\language\\actions.def",
+    "blocks": "c:/baselscript/system\\language\\blocks.def",
+    "scene": "c:/baselscript/system\\language\\scene.def",
+    "conditions": "c:/baselscript/system\\language\\conditions.def"
   },
   "summary": {
     "functions": 247,
-    "actions": 133,
+    "actions": 126,
     "blocks": 7,
     "scenes": 1,
     "conditions": 16
@@ -2814,27 +2814,6 @@
       "syntax": ""
     },
     {
-      "name": "db_current",
-      "match": "Exact",
-      "parameterRule": "None",
-      "runtimeRequirement": "None",
-      "syntax": ""
-    },
-    {
-      "name": "db_exists",
-      "match": "Exact",
-      "parameterRule": "None",
-      "runtimeRequirement": "None",
-      "syntax": ""
-    },
-    {
-      "name": "db_path",
-      "match": "Exact",
-      "parameterRule": "None",
-      "runtimeRequirement": "None",
-      "syntax": ""
-    },
-    {
       "name": "db_restore",
       "match": "Exact",
       "parameterRule": "None",
@@ -2898,13 +2877,6 @@
       "syntax": ""
     },
     {
-      "name": "grid",
-      "match": "Exact",
-      "parameterRule": "None",
-      "runtimeRequirement": "None",
-      "syntax": ""
-    },
-    {
       "name": "insert_after",
       "match": "Exact",
       "parameterRule": "None",
@@ -2941,13 +2913,6 @@
     },
     {
       "name": "log",
-      "match": "Exact",
-      "parameterRule": "None",
-      "runtimeRequirement": "None",
-      "syntax": ""
-    },
-    {
-      "name": "mail",
       "match": "Exact",
       "parameterRule": "None",
       "runtimeRequirement": "None",
@@ -2996,21 +2961,7 @@
       "syntax": ""
     },
     {
-      "name": "open",
-      "match": "Exact",
-      "parameterRule": "None",
-      "runtimeRequirement": "None",
-      "syntax": ""
-    },
-    {
       "name": "parsing",
-      "match": "Exact",
-      "parameterRule": "None",
-      "runtimeRequirement": "None",
-      "syntax": ""
-    },
-    {
-      "name": "pdf",
       "match": "Exact",
       "parameterRule": "None",
       "runtimeRequirement": "None",
@@ -3235,13 +3186,6 @@
     },
     {
       "name": "upload",
-      "match": "Exact",
-      "parameterRule": "None",
-      "runtimeRequirement": "None",
-      "syntax": ""
-    },
-    {
-      "name": "vibrate",
       "match": "Exact",
       "parameterRule": "None",
       "runtimeRequirement": "None",
@@ -3578,6 +3522,13 @@
     },
     {
       "name": "CHART_BEGIN",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_VALUES",
       "match": "Prefix",
       "parameterRule": "None",
       "runtimeRequirement": "None",
