@@ -1,0 +1,153 @@
+{
+  "product": "BaselScript",
+  "schema_version": 1,
+  "training_version": 8,
+  "status": "current",
+  "date": "2026-08-30",
+  "repository": {
+    "owner": "BaselFil",
+    "name": "baselscript-training",
+    "url": "https://github.com/BaselFil/baselscript-training",
+    "branch": "main"
+  },
+  "manifest": {
+    "url": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/manifest.json"
+  },
+  "entry_point": {
+    "path": "BASELSCRIPT_AI_CONTEXT.md",
+    "required": true
+  },
+  "language": {
+    "directory": "language",
+    "machine_readable": {
+      "path": "language/baselscript-language.json",
+      "required": true,
+      "generated": true,
+      "hand_edit": false
+    },
+    "definitions": [
+      {
+        "path": "language/actions.def",
+        "required": true
+      },
+      {
+        "path": "language/blocks.def",
+        "required": true
+      },
+      {
+        "path": "language/conditions.def",
+        "required": true
+      },
+      {
+        "path": "language/functions.def",
+        "required": true
+      },
+      {
+        "path": "language/scene.def",
+        "required": true
+      }
+    ]
+  },
+  "snapshot": {
+    "loaded": true,
+    "loadErrors": "",
+    "functions": 247,
+    "actions": 126,
+    "blocks": 7,
+    "scenes": 1,
+    "conditions": 16
+  },
+  "knowledge": [
+    {
+      "path": "knowledge/language_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/generation_rules.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/regression_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/testing_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/call_execution_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/ui_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/files_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/database_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/security_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/functions_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/graphics_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/charts_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/network_device_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/script_meta_status.md",
+      "required": true
+    },
+    {
+      "path": "knowledge/weak_actions_status.md",
+      "required": true
+    }
+  ],
+  "regression": {
+    "results": "regression/RUNTIME_CONFIRMED_RESULTS.md",
+    "directories": {
+      "confirmed": "regression/confirmed",
+      "negative": "regression/negative",
+      "open": "regression/open"
+    }
+  },
+  "usage_policy": {
+    "purpose": [
+      "generate",
+      "validate",
+      "explain",
+      "review",
+      "modify"
+    ],
+    "authoritative_order": [
+      "confirmed current runtime/regression evidence",
+      "language/*.def",
+      "language/baselscript-language.json",
+      "knowledge/*.md",
+      "repeated real script corpus",
+      "rare corpus evidence",
+      "historical/review examples"
+    ],
+    "rules": [
+      "Do not invent unsupported BaselScript syntax.",
+      "Do not hand-edit language/baselscript-language.json.",
+      "If syntax is not confirmed, classify it as unverified."
+    ]
+  }
+}
