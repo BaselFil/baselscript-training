@@ -87,6 +87,7 @@ Files / directories        -> knowledge/files_status.md
 Database / SQL             -> knowledge/database_status.md
 Crypto / security          -> knowledge/security_status.md
 Functions                  -> knowledge/functions_status.md + language/functions.def
+Date / time / weekday      -> knowledge/date_time_status.md + knowledge/functions_status.md + language/functions.def
 CALL / scene / section     -> knowledge/call_execution_status.md
 IF / loops / testing       -> knowledge/testing_status.md + knowledge/regression_status.md
 Network / device / media   -> knowledge/network_device_status.md
@@ -157,6 +158,31 @@ call menu=m2
 
 The currently installed validator build can still report that the dynamic MENU does not exist.
 Treat this as an open Validator/build synchronization defect, not as invalid language syntax.
+
+
+## Semantic completeness rule
+
+The machine-readable `.def` and JSON files do not describe every runtime side effect.
+
+Before saying that a requested operation is unsupported:
+
+1. load the matching `task_routes` knowledge file
+2. check system/output variables produced by the function
+3. check documented compositions of CURRENT primitives
+4. prefer current runtime/reference evidence over absence of a convenience function name
+
+Concrete example:
+
+```baselscript
+#d=$date()
+message #_current_weekday_name
+```
+
+This is valid current-date weekday-name behavior even though there is no dedicated
+`weekday_name(...)` function.
+
+For an arbitrary date, read `knowledge/date_time_status.md` before answering.
+
 
 ## Recommended ChatGPT bootstrap prompt
 

@@ -107,3 +107,30 @@ database question -> knowledge/database_status.md
 ```
 
 For a multi-domain request, the required file sets are combined.
+
+
+## AI loading model
+
+Do not load every domain document indiscriminately.
+
+Use:
+
+```text
+manifest.json
+    -> loading_policy.baseline_required
+    -> task_routes
+    -> required_files for the matching route
+```
+
+This keeps the reference focused while forcing the relevant semantic file to be read.
+
+Date/time questions route to:
+
+```text
+knowledge/date_time_status.md
+knowledge/functions_status.md
+language/functions.def
+```
+
+The date/time reference includes runtime side effects such as `#_current_weekday_name`, which are
+not expressible through function arity alone.

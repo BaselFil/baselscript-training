@@ -1,7 +1,7 @@
 {
   "product": "BaselScript",
   "schema_version": 1,
-  "training_version": 8,
+  "training_version": 9,
   "status": "current",
   "date": "2026-08-30",
   "repository": {
@@ -60,76 +60,97 @@
   "knowledge": [
     {
       "path": "knowledge/language_status.md",
-      "required": true
+      "required": true,
+      "scope": "baseline"
     },
     {
       "path": "knowledge/generation_rules.md",
-      "required": true
+      "required": true,
+      "scope": "baseline"
     },
     {
       "path": "knowledge/regression_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "control_flow_testing"
     },
     {
       "path": "knowledge/testing_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "control_flow_testing"
     },
     {
       "path": "knowledge/call_execution_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "call_execution"
     },
     {
       "path": "knowledge/ui_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "ui"
     },
     {
       "path": "knowledge/files_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "files_directories"
     },
     {
       "path": "knowledge/database_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "database_sql"
     },
     {
       "path": "knowledge/security_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "security_crypto"
     },
     {
       "path": "knowledge/functions_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "functions"
     },
     {
       "path": "knowledge/graphics_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "graphics"
     },
     {
       "path": "knowledge/charts_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "charts"
     },
     {
       "path": "knowledge/network_device_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "network_device_media"
     },
     {
       "path": "knowledge/script_meta_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "script_meta"
     },
     {
       "path": "knowledge/weak_actions_status.md",
       "required": false,
-      "required_when_routed": true
+      "scope": "routed",
+      "route": "weak_actions"
+    },
+    {
+      "path": "knowledge/date_time_status.md",
+      "required": false,
+      "scope": "routed",
+      "route": "date_time"
     }
   ],
   "regression": {
@@ -160,27 +181,21 @@
     "rules": [
       "Do not invent unsupported BaselScript syntax.",
       "Do not hand-edit language/baselscript-language.json.",
-      "If syntax is not confirmed, classify it as unverified.",
-      "Before generating BaselScript code, load baseline_required and all matching task_routes.",
-      "A task route with hard_gate=true is mandatory; do not answer with domain-specific syntax until its required_files are read.",
-      "If several task routes match, load the union of all required_files.",
-      "Do not ask the user to restate information that is already present in a required routed file.",
-      "When a routed file contains an exact working syntax pattern, prefer that pattern over generic programming knowledge."
-    ]
+      "If syntax is not confirmed, classify it as unverified."
+    ],
+    "semantic_rule": "Do not declare a task unsupported until the routed semantic reference has been checked for system variables, side effects, and confirmed compositions."
   },
-  "raw_base_url": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/",
   "loading_policy": {
-    "mode": "baseline_plus_task_routes",
     "baseline_required": [
       "BASELSCRIPT_AI_CONTEXT.md",
-      "language/baselscript-language.json",
       "knowledge/language_status.md",
-      "knowledge/generation_rules.md"
+      "knowledge/generation_rules.md",
+      "language/baselscript-language.json"
     ],
-    "before_any_baselscript_code": "Load every baseline_required file, then load every matching task route before answering.",
-    "multi_domain_rule": "If a request spans multiple domains, load all matching task routes.",
-    "missing_route_file_rule": "If a required routed file cannot be accessed, state which file is unavailable and do not invent domain-specific BaselScript syntax.",
-    "no_route_rule": "If no route clearly matches, inspect the relevant current language definition and knowledge file before generating syntax."
+    "route_required": true,
+    "multi_route": true,
+    "semantic_before_refusal": true,
+    "instruction": "Load baseline_required first. Then classify the request into task_routes and load every required_files entry for all matching routes before answering."
   },
   "task_routes": {
     "graphics": {
@@ -192,33 +207,24 @@
         "circle",
         "ellipse",
         "rect",
-        "rectangle",
         "line",
         "point",
-        "text",
-        "image",
         "polygon",
-        "property",
-        "prop",
-        "sector",
         "arc",
-        "segment"
+        "sector",
+        "segment",
+        "image"
       ],
       "required_files": [
         "knowledge/graphics_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true,
-      "instruction": "Do not generate graphics code before reading knowledge/graphics_status.md."
+      "hard_gate": true
     },
     "charts": {
       "match_examples": [
         "chart",
-        "charts",
-        "CHART_BEGIN",
-        "CHART_SET",
-        "CHART_VALUES",
-        "CHART_DRAW",
+        "CHART_",
         "bars",
         "pie",
         "donut",
@@ -229,210 +235,187 @@
         "knowledge/charts_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true,
-      "instruction": "Do not generate CHART code before reading knowledge/charts_status.md."
+      "hard_gate": true
     },
     "ui": {
       "match_examples": [
-        "UI",
-        "form",
         "menu",
         "list",
+        "form",
         "dialog",
         "popupmenu",
         "tile",
-        "dynamic menu",
-        "button",
-        "input",
-        "spinner",
-        "checkbox",
-        "radiobutton",
-        "switch"
+        "UI"
       ],
       "required_files": [
         "knowledge/ui_status.md",
         "language/blocks.def",
-        "language/scene.def",
         "language/actions.def"
       ],
-      "hard_gate": true,
-      "instruction": "Read the UI status before generating forms, menus, lists, dialogs, popup menus, or dynamic UI."
+      "hard_gate": true
     },
     "files_directories": {
       "match_examples": [
         "file",
-        "files",
         "directory",
-        "directories",
-        "select",
-        "search_dir",
-        "thumbnail",
-        "read",
-        "save",
-        "copy",
-        "rename",
-        "upload",
-        "download"
+        "folder",
+        "select file",
+        "import",
+        "export"
       ],
       "required_files": [
         "knowledge/files_status.md",
         "language/actions.def",
         "language/functions.def"
       ],
-      "hard_gate": true,
-      "instruction": "Read the files/directories status before generating file or directory workflows."
+      "hard_gate": true
     },
     "database_sql": {
       "match_examples": [
         "database",
-        "db_use",
         "SQL",
+        "db_use",
         "table",
-        "record",
-        "SQL_SELECT",
-        "SQL_INSERT",
-        "SQL_UPDATE",
-        "SQL_DELETE"
+        "record"
       ],
       "required_files": [
         "knowledge/database_status.md",
-        "language/actions.def",
-        "language/functions.def"
+        "language/actions.def"
       ],
-      "hard_gate": true,
-      "instruction": "Read the database status before generating database or SQL code."
+      "hard_gate": true
     },
     "security_crypto": {
       "match_examples": [
         "crypto",
-        "security",
         "encrypt",
         "decrypt",
-        "CRYPTO_ENCRYPT",
-        "CRYPTO_DECRYPT",
-        "SQL_SECURITY",
-        "master password",
-        "access key"
+        "security",
+        "access key",
+        "master password"
       ],
       "required_files": [
         "knowledge/security_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true,
-      "instruction": "Read the security status before generating crypto or security code."
+      "hard_gate": true
     },
     "functions": {
       "match_examples": [
         "function",
-        "functions",
         "$",
-        "arity",
-        "alias",
         "string.",
         "math.",
-        "date.",
         "array.",
-        "file.",
-        "draw."
+        "date.",
+        "get_message"
       ],
       "required_files": [
         "knowledge/functions_status.md",
         "language/functions.def"
       ],
+      "hard_gate": true
+    },
+    "date_time": {
+      "match_examples": [
+        "date",
+        "time",
+        "weekday",
+        "day of week",
+        "weekday name",
+        "current weekday",
+        "month name",
+        "day_of_week",
+        "#_current_weekday",
+        "#_current_weekday_name",
+        "дата",
+        "время",
+        "день недели",
+        "название дня недели",
+        "текущий день недели"
+      ],
+      "required_files": [
+        "knowledge/date_time_status.md",
+        "knowledge/functions_status.md",
+        "language/functions.def"
+      ],
       "hard_gate": true,
-      "instruction": "Verify the exact function spelling, aliases, and arity before generating a function call."
+      "instruction": "Check system variables and function side effects. Do not refuse merely because there is no one-step convenience function."
     },
     "call_execution": {
       "match_examples": [
         "call",
         "scene",
         "section",
-        "sec",
-        "action",
-        "act",
-        "script",
-        "scr",
-        "call target"
+        "sec=",
+        "script=",
+        "scr="
       ],
       "required_files": [
         "knowledge/call_execution_status.md",
+        "language/actions.def",
         "language/blocks.def",
-        "language/scene.def",
-        "language/actions.def"
+        "language/scene.def"
       ],
-      "hard_gate": true,
-      "instruction": "Read call/composition rules before generating or validating CALL targets."
+      "hard_gate": true
     },
     "control_flow_testing": {
       "match_examples": [
         "if",
         "elseif",
-        "else",
-        "endif",
-        "for",
         "while",
         "foreach",
+        "for",
         "break",
         "continue",
         "assert",
-        "test_run",
-        "test runner",
-        "condition"
+        "test_run"
       ],
       "required_files": [
         "knowledge/testing_status.md",
         "knowledge/regression_status.md",
-        "language/actions.def",
-        "language/conditions.def"
+        "language/conditions.def",
+        "language/actions.def"
       ],
-      "hard_gate": true,
-      "instruction": "Read testing/control-flow status and the condition contract before generating loops, conditions, assertions, or test-runner code."
+      "hard_gate": true
     },
     "network_device_media": {
       "match_examples": [
         "network",
-        "device",
+        "download",
+        "upload",
         "driver_list",
-        "notification",
-        "notif",
         "music",
         "sound",
-        "media",
-        "Android",
-        "Windows"
+        "notification"
       ],
       "required_files": [
         "knowledge/network_device_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true,
-      "instruction": "Read platform/device status before generating platform-specific code."
+      "hard_gate": true
     },
     "script_meta": {
       "match_examples": [
-        "script meta",
         "merge_all_scripts",
         "rewrite_all_scripts",
-        "preformat",
-        "script processing"
+        "script meta",
+        "script management"
       ],
       "required_files": [
         "knowledge/script_meta_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true,
-      "instruction": "Read script/meta status before generating script transformation or meta operations."
+      "hard_gate": true
     },
-    "weak_contract_actions": {
+    "weak_actions": {
       "match_examples": [
         "delay",
         "trace_full",
         "trace_as_is",
-        "trace_asis",
         "parsing",
         "remove",
-        "update_all_records",
         "replace",
+        "update_all_records",
         "search_dir",
         "thumbnail",
         "message_short",
@@ -444,8 +427,7 @@
         "knowledge/weak_actions_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true,
-      "instruction": "Use only runtime-confirmed weak-action forms documented in weak_actions_status.md."
+      "hard_gate": true
     }
   }
 }
