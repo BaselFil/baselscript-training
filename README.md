@@ -86,3 +86,24 @@ https://raw.githubusercontent.com/BaselFil/baselscript-training/main/manifest.js
 ```
 
 Old intermediate update ZIPs should not be used as the current reference.
+
+## AI task routing
+
+The manifest uses a baseline-plus-routing model. AI systems should not load the whole knowledge tree
+blindly and then skip a domain file. They must:
+
+1. load `loading_policy.baseline_required`
+2. match the request against `task_routes`
+3. load every routed `required_files` entry
+4. obey every `hard_gate=true` route before generating syntax
+
+Examples:
+
+```text
+graphics question -> knowledge/graphics_status.md
+chart question    -> knowledge/charts_status.md
+UI question       -> knowledge/ui_status.md
+database question -> knowledge/database_status.md
+```
+
+For a multi-domain request, the required file sets are combined.
