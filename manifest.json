@@ -1,7 +1,7 @@
 {
   "product": "BaselScript",
   "schema_version": 1,
-  "training_version": 9,
+  "training_version": 10,
   "status": "current",
   "date": "2026-08-30",
   "repository": {
@@ -195,7 +195,11 @@
     "route_required": true,
     "multi_route": true,
     "semantic_before_refusal": true,
-    "instruction": "Load baseline_required first. Then classify the request into task_routes and load every required_files entry for all matching routes before answering."
+    "instruction": "Load baseline_required first. Then classify the request into task_routes and load every required_files entry for all matching routes before answering.",
+    "hard_gate_enforcement": true,
+    "reference_loaded_definition": "A task is not considered 'reference loaded' until baseline_required and every file listed in required_files for all matching task_routes with hard_gate=true have been successfully read.",
+    "missing_required_file_behavior": "If any hard-gate required file cannot be loaded, explicitly name the missing file and do not generate BaselScript for that task.",
+    "no_baseline_only_answer": "Do not answer from baseline files alone when a matching hard_gate route exists."
   },
   "task_routes": {
     "graphics": {
@@ -219,7 +223,8 @@
         "knowledge/graphics_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     },
     "charts": {
       "match_examples": [
@@ -235,7 +240,8 @@
         "knowledge/charts_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     },
     "ui": {
       "match_examples": [
@@ -252,7 +258,8 @@
         "language/blocks.def",
         "language/actions.def"
       ],
-      "hard_gate": true
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     },
     "files_directories": {
       "match_examples": [
@@ -268,7 +275,8 @@
         "language/actions.def",
         "language/functions.def"
       ],
-      "hard_gate": true
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     },
     "database_sql": {
       "match_examples": [
@@ -282,7 +290,8 @@
         "knowledge/database_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     },
     "security_crypto": {
       "match_examples": [
@@ -297,7 +306,8 @@
         "knowledge/security_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     },
     "functions": {
       "match_examples": [
@@ -313,7 +323,8 @@
         "knowledge/functions_status.md",
         "language/functions.def"
       ],
-      "hard_gate": true
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     },
     "date_time": {
       "match_examples": [
@@ -339,7 +350,8 @@
         "language/functions.def"
       ],
       "hard_gate": true,
-      "instruction": "Check system variables and function side effects. Do not refuse merely because there is no one-step convenience function."
+      "instruction": "Check system variables and function side effects. Do not refuse merely because there is no one-step convenience function.",
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     },
     "call_execution": {
       "match_examples": [
@@ -356,7 +368,8 @@
         "language/blocks.def",
         "language/scene.def"
       ],
-      "hard_gate": true
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     },
     "control_flow_testing": {
       "match_examples": [
@@ -376,7 +389,8 @@
         "language/conditions.def",
         "language/actions.def"
       ],
-      "hard_gate": true
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     },
     "network_device_media": {
       "match_examples": [
@@ -392,7 +406,8 @@
         "knowledge/network_device_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     },
     "script_meta": {
       "match_examples": [
@@ -405,7 +420,8 @@
         "knowledge/script_meta_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     },
     "weak_actions": {
       "match_examples": [
@@ -427,7 +443,8 @@
         "knowledge/weak_actions_status.md",
         "language/actions.def"
       ],
-      "hard_gate": true
+      "hard_gate": true,
+      "enforcement": "MANDATORY: load every required_files entry before answering. If one cannot be loaded, stop BaselScript generation and report the missing file."
     }
   }
 }

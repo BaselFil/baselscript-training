@@ -134,3 +134,13 @@ language/functions.def
 
 The date/time reference includes runtime side effects such as `#_current_weekday_name`, which are
 not expressible through function arity alone.
+
+
+## Hard-gate routing
+
+For any task matched by a `task_routes` entry with `hard_gate=true`, the AI must read every listed
+`required_files` entry before answering. Saying `BaselScript reference loaded` is valid only after
+both baseline files and all matching hard-gate route files have been loaded.
+
+If a required routed file cannot be loaded, the AI must name that file and must not generate
+BaselScript for the task.

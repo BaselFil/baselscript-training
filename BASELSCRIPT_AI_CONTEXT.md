@@ -160,6 +160,48 @@ The currently installed validator build can still report that the dynamic MENU d
 Treat this as an open Validator/build synchronization defect, not as invalid language syntax.
 
 
+
+## MANDATORY ROUTING RULE
+
+If `manifest.json` contains one or more matching `task_routes` with:
+
+```text
+hard_gate = true
+```
+
+you MUST load every file listed in `required_files` for every matching hard-gate route before answering.
+
+Do not answer from baseline files alone when a matching hard-gate route exists.
+
+A task is not considered:
+
+```text
+BaselScript reference loaded
+```
+
+until all of the following have been successfully read:
+
+1. every file in `loading_policy.baseline_required`
+2. every `required_files` entry for all matching `task_routes` where `hard_gate=true`
+
+If any required routed file cannot be loaded:
+
+1. explicitly name the file that could not be loaded
+2. do not generate BaselScript code for that task
+3. do not substitute general programming knowledge
+4. do not guess unsupported syntax
+
+For example, a weekday/date request matches the `date_time` route. Before answering, the AI must read:
+
+```text
+knowledge/date_time_status.md
+knowledge/functions_status.md
+language/functions.def
+```
+
+Only after those files are loaded may the AI generate date/time BaselScript.
+
+
 ## Semantic completeness rule
 
 The machine-readable `.def` and JSON files do not describe every runtime side effect.
@@ -182,6 +224,11 @@ This is valid current-date weekday-name behavior even though there is no dedicat
 `weekday_name(...)` function.
 
 For an arbitrary date, read `knowledge/date_time_status.md` before answering.
+
+
+
+When you say "BaselScript reference loaded", that statement is only valid after all baseline files
+and all hard-gate route files required for the current task have been successfully read.
 
 
 ## Recommended ChatGPT bootstrap prompt
