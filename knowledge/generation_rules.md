@@ -14,6 +14,23 @@ Generate BaselScript that matches the current interpreter, validator, and verifi
 6. If syntax cannot be confirmed, state that it is unverified instead of guessing.
 7. Preserve existing working syntax when modifying a script. Change only what is necessary.
 
+## Explicit non-generation list
+
+The following standalone names are not part of the current action contract and must not be generated:
+
+```text
+db_current
+db_path
+db_exists
+open
+grid
+pdf
+mail
+vibrate
+```
+
+Use `select` rather than `open` for the current file-picker workflow.
+
 ## Script formatting
 
 Use compact formatting.

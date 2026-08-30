@@ -306,3 +306,146 @@ When generating BaselScript graphics:
 - do not invent commands such as `DrawOval`, `Oval`, `DrawEllipse` or `rectangle()`
 - do not translate graphic primitives into another programming language
 - if the requested positioning cannot be determined from documented screen dimensions or variables, ask for the required dimensions instead of inventing them
+
+## Additional CURRENT graphic primitives - 2026-08-30 audit
+
+The following primitives were explicitly confirmed by the BaselScript maintainer as tested
+and working in the current interpreter. They also have real corpus evidence where noted.
+
+### Arc
+
+CURRENT tile:
+
+```text
+arc
+```
+
+Real corpus examples use radius and angle/sweep forms:
+
+```baselscript
+draw tile=arc id=arc1 x1=#x1 y1=#y1 s_w=6 radius=#radius angle=-45 sweep=90 rotate=45
+
+draw tile=arc id=arc3 x1=#x1 y1=#y1 s_w=6 radius=#radius start_angle=0 sweep=180
+```
+
+Observed parameter spellings include `radius`, `r`, `angle`, `start_angle`, `sweep`,
+`rotate`, `s_w` and other normal graphic style parameters. Preserve a confirmed working
+spelling instead of inventing a new alias.
+
+### Sector
+
+CURRENT tile:
+
+```text
+sector
+```
+
+Used for filled angular regions and low-level pie charts.
+
+```baselscript
+draw tile=sector id=s1 x1=#x1 y1=#y1 radius=#radius start_angle=#start sweep_angle=#sweep sw=#stroke c=#color
+```
+
+Corpus variants include `start`, `start_angle`, `angle`, `sweep`, `sweep_angle`, `radius`
+and `r`.
+
+### Segment
+
+CURRENT tile:
+
+```text
+segment
+```
+
+Real examples:
+
+```baselscript
+draw tile=segment id=seg12 x1=#x1 y1=#y1 radius=#radius start_angle=45 sweep=160 sw=#stroke tra=30
+```
+
+Corpus variants also use `angle`, `add`, `rotate`/`rot` and transparency spellings.
+Preserve the spelling of the matched current example when generating or editing.
+
+### Polygon
+
+CURRENT tile:
+
+```text
+polygon
+```
+
+Repeated corpus form supplies arrays of coordinates:
+
+```baselscript
+draw tile=polygon id=poly c=#ff0000 fill=1 stroke_width=6 x1=#xx_array y1=#yy_array
+```
+
+`x1` and `y1` may therefore hold coordinate arrays for polygon drawing.
+
+### Image
+
+CURRENT graphic tile:
+
+```text
+image
+```
+
+Real graphic examples include:
+
+```baselscript
+draw tile=property image=2.png dir=APPDIR/files/images/examples
+draw tile=image x1=50 y1=15 id=im0 scale=1
+```
+
+Image source/directory can be inherited from graphic property state in existing scripts.
+Other corpus forms use explicit `image=`, `dir=`/`directory=`, `w`/`width`, `h`/`height`,
+`scale` and `rotate`.
+
+Do not assume that UI `tile=image` and graphic `draw tile=image` accept every identical
+parameter. Follow the matching subsystem example.
+
+### Property / prop
+
+CURRENT state-setting tiles:
+
+```text
+property
+prop
+```
+
+They set defaults/state for subsequent drawing rather than representing a normal visible
+primitive.
+
+Examples:
+
+```baselscript
+draw tile=property c=#0000ff stroke_width=15 fill=1
+
+draw tile=prop x1=430 y1=450 c=#ff0055 sw=4 s=45 sty=italic bg=trans
+```
+
+`property` and `prop` are confirmed aliases in real scripts. Their settings should be
+understood as drawing state inherited by later primitives where supported.
+
+## Graphics generation rule update
+
+The CURRENT primitive set documented by this reference now includes at least:
+
+```text
+rect
+circle
+ellipse
+line
+point
+text
+arc
+sector
+segment
+polygon
+image
+property
+prop
+```
+
+This list is based on the current training audit and maintainer confirmation. Do not infer
+new primitive names from geometric terminology alone.
