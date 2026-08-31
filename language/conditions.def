@@ -64,4 +64,3 @@ operator;||;LogicalOr;false
 //
 // Internal negative-comparison tokenizer forms such as >-, <-, >=-, <=-
 // are also intentionally not exposed as language operators.
-// update test

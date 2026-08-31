@@ -141,11 +141,11 @@ SQL_SELECT_AVG;Prefix;None;ApplicationDatabase;SQL_SELECT_AVG <f> FROM <t> [WHER
 SQL_SELECT;Prefix;None;ApplicationDatabase;SQL_SELECT <f> FROM <t> [WHERE(...)] [OUTPUT(<x>)]
 SQL_EXIST;Prefix;None;ApplicationDatabase;SQL_EXIST <t> OUTPUT(<x>)
 CHART_BEGIN;Prefix;None;None;-
-CHART_VALUES;Prefix;None;None;-
 CHART_VALUES_FROM_FILE;Prefix;None;None;-
+CHART_VALUES_FROM_ARRAY;Prefix;None;None;-
+CHART_VALUES;Prefix;None;None;-
 CHART_FROM_FILE;Prefix;None;None;-
 CHART_BIND;Prefix;None;None;-
-CHART_VALUES_FROM_ARRAY;Prefix;None;None;-
 CHART_ARRAY_VALUES;Prefix;None;None;-
 CHART_ARRAY_LABELS;Prefix;None;None;-
 CHART_LABELS_FROM_ARRAY;Prefix;None;None;-

@@ -3528,14 +3528,21 @@
       "syntax": ""
     },
     {
-      "name": "CHART_VALUES",
+      "name": "CHART_VALUES_FROM_FILE",
       "match": "Prefix",
       "parameterRule": "None",
       "runtimeRequirement": "None",
       "syntax": ""
     },
     {
-      "name": "CHART_VALUES_FROM_FILE",
+      "name": "CHART_VALUES_FROM_ARRAY",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_VALUES",
       "match": "Prefix",
       "parameterRule": "None",
       "runtimeRequirement": "None",
@@ -3550,13 +3557,6 @@
     },
     {
       "name": "CHART_BIND",
-      "match": "Prefix",
-      "parameterRule": "None",
-      "runtimeRequirement": "None",
-      "syntax": ""
-    },
-    {
-      "name": "CHART_VALUES_FROM_ARRAY",
       "match": "Prefix",
       "parameterRule": "None",
       "runtimeRequirement": "None",
