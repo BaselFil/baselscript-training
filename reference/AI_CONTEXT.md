@@ -2,18 +2,46 @@
 
 This repository is the authoritative AI reference for the current BaselScript language.
 
+## Repository path rule
+
+All file paths in this reference are relative to the **Git repository root**.
+
+Correct:
+
+```text
+reference/manifest.json
+reference/AI_CONTEXT.md
+reference/language/functions.def
+reference/language/actions.def
+reference/language/blocks.def
+reference/language/conditions.def
+reference/language/scene.def
+reference/language/baselscript-language.json
+reference/semantics/10_date_time.md
+```
+
+Wrong:
+
+```text
+language/functions.def
+language/actions.def
+semantics/10_date_time.md
+```
+
+Do not remove the leading `reference/` directory when constructing GitHub paths or URLs.
+
 ## Source layers
 
-1. `language/*.def` and `language/baselscript-language.json`
+1. `reference/language/*.def` and `reference/language/baselscript-language.json`
    - machine contract used by the validator/reference exporter
    - defines known names, aliases, arity, block tokens, condition tokens and runtime requirements
    - does NOT by itself define every source-level invocation form, return convention, side effect or platform behavior
 
-2. `semantics/*.md`
+2. `reference/semantics/*.md`
    - canonical source-level usage and verified behavioral semantics
    - this is where invocation syntax, side effects, compositions and platform notes belong
 
-3. `evidence/*.md`
+3. `reference/evidence/*.md`
    - confidence and coverage status
    - unverified, removed and legacy forms must not be generated as current syntax
 
@@ -38,7 +66,7 @@ Semantic files may add verified behavior that the machine contract does not enco
 
 Before generating BaselScript:
 
-1. read `manifest.json`
+1. read `reference/manifest.json`
 2. load every file in `baseline_required`
 3. classify the request into one or more `task_routes`
 4. load every routed semantic file and machine-contract file for those routes
