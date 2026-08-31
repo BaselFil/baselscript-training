@@ -1,0 +1,4438 @@
+{
+  "schema": "baselscript-language-v1",
+  "loaded": true,
+  "loadErrors": "",
+  "sources": {
+    "functions": "c:/baselscript/system\\language\\functions.def",
+    "actions": "c:/baselscript/system\\language\\actions.def",
+    "blocks": "c:/baselscript/system\\language\\blocks.def",
+    "scene": "c:/baselscript/system\\language\\scene.def",
+    "conditions": "c:/baselscript/system\\language\\conditions.def"
+  },
+  "summary": {
+    "functions": 247,
+    "actions": 126,
+    "blocks": 7,
+    "scenes": 1,
+    "conditions": 16
+  },
+  "functions": [
+    {
+      "name": "add_extention",
+      "aliases": ["string.add_extention", "file.add_extention"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "add_hours",
+      "aliases": ["date.add_hours"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "add_leading_symbols",
+      "aliases": ["string.add_leading_symbols"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "add_minutes",
+      "aliases": ["date.add_minutes"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "add_months",
+      "aliases": ["date.add_months"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "add_seconds",
+      "aliases": ["date.add_seconds"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "add_string",
+      "aliases": ["string.add_string", "string.add"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "add_years",
+      "aliases": ["date.add_years"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "add_years_months_days_hours_minutes_seconds",
+      "aliases": ["date.add_years_months_days_hours_minutes_seconds", "add_yyyy_mm_dd_hh_mm_ss", "date.aadd_yyyy_mm_dd_hh_mm_ss", "date.add_yyyy_mm_dd_hh_mm_ss"],
+      "hasParameterRule": true,
+      "arity": "7|8",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [7, 8],
+      "expectedParameters": "7 or 8",
+      "requirement": "None"
+    },
+    {
+      "name": "all_substrings_between",
+      "aliases": ["all_substr_between", "string.all_substrings_between", "string.all_substr_between", "get_all_substrings_between", "string.get_all_substrings_between"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "array.add",
+      "aliases": ["array.add_element"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "array.arrays_are_equell",
+      "aliases": ["array.2_arrays_are_equell"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "array.clear",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "1",
+      "minParameters": 1,
+      "maxParameters": 1,
+      "allowedParameterCounts": null,
+      "expectedParameters": "1",
+      "requirement": "None"
+    },
+    {
+      "name": "array.contains",
+      "aliases": ["array.contains_in_array"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "array.count_of_string",
+      "aliases": ["array.count_of_substring", "array.number_of_string", "array.get_count_of_string", "array.get_number_of_string"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "array.count_of_value",
+      "aliases": ["array.get_count_of_value"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "array.counter",
+      "aliases": ["array.get_counter", "array.get_counter_array", "array.length", "array.get_length", "array.get_length_array"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "array.get_first_index",
+      "aliases": ["array.get_index", "get_first_index", "get_index"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "array.max",
+      "aliases": ["array.get_max"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "array.min",
+      "aliases": ["array.get_min"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "array.sum",
+      "aliases": ["array.get_sum"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "as_is",
+      "aliases": [],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "change_brightness",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "5",
+      "minParameters": 5,
+      "maxParameters": 5,
+      "allowedParameterCounts": null,
+      "expectedParameters": "5",
+      "requirement": "None"
+    },
+    {
+      "name": "change_contrast",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "5",
+      "minParameters": 5,
+      "maxParameters": 5,
+      "allowedParameterCounts": null,
+      "expectedParameters": "5",
+      "requirement": "None"
+    },
+    {
+      "name": "change_opacity",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "5",
+      "minParameters": 5,
+      "maxParameters": 5,
+      "allowedParameterCounts": null,
+      "expectedParameters": "5",
+      "requirement": "None"
+    },
+    {
+      "name": "char_to_int",
+      "aliases": ["string.char_to_int", "convert_char_to_int", "string.convert_char_to_int"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "compute",
+      "aliases": ["string.compute", "compute_string", "string.compute_string"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "concate2",
+      "aliases": ["concat2"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "cont",
+      "aliases": ["contains", "string.contains"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "contains_number",
+      "aliases": ["string.contains_number"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "convert_to_color",
+      "aliases": ["color", "string.convert_to_color"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "count_occurrrence",
+      "aliases": ["count_occurr", "count_contains", "string.count_occurr"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "count_of_substring",
+      "aliases": ["string.count_of_substring"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "crop_image",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "8",
+      "minParameters": 8,
+      "maxParameters": 8,
+      "allowedParameterCounts": null,
+      "expectedParameters": "8",
+      "requirement": "None"
+    },
+    {
+      "name": "crop_to_circle",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "5",
+      "minParameters": 5,
+      "maxParameters": 5,
+      "allowedParameterCounts": null,
+      "expectedParameters": "5",
+      "requirement": "None"
+    },
+    {
+      "name": "crop_to_ovale",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "6",
+      "minParameters": 6,
+      "maxParameters": 6,
+      "allowedParameterCounts": null,
+      "expectedParameters": "6",
+      "requirement": "None"
+    },
+    {
+      "name": "date",
+      "aliases": ["date.current_date", "current_date"],
+      "hasParameterRule": true,
+      "arity": "*..4",
+      "minParameters": 0,
+      "maxParameters": 4,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 4",
+      "requirement": "None"
+    },
+    {
+      "name": "date.add_days",
+      "aliases": ["add_days"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "date.compare",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "date.current_date_long",
+      "aliases": ["current_date_long", "date.current_long", "current_long"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "date.current_date_short",
+      "aliases": ["current_date_short", "current_short", "date.current_short"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "date.current_day",
+      "aliases": ["current_day"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "date.current_month",
+      "aliases": ["current_month"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "date.current_ticks",
+      "aliases": ["current_ticks"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "date.current_time",
+      "aliases": ["current_time"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "date.current_time_pmam",
+      "aliases": ["current_time_pmam"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "date.current_year",
+      "aliases": ["current_year"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "date.date_format",
+      "aliases": ["date_format"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "date.days_in_month",
+      "aliases": ["days_in_month"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "date.in_interval",
+      "aliases": ["date.interval"],
+      "hasParameterRule": true,
+      "arity": "3|4",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [3, 4],
+      "expectedParameters": "3 or 4",
+      "requirement": "None"
+    },
+    {
+      "name": "date.strings_to_dateformat",
+      "aliases": ["strings_to_dateformat", "date.string_to_dateformat", "string_to_dateformat"],
+      "hasParameterRule": true,
+      "arity": "3|4",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [3, 4],
+      "expectedParameters": "3 or 4",
+      "requirement": "None"
+    },
+    {
+      "name": "date.utc",
+      "aliases": ["utc"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "datetime",
+      "aliases": ["date.datetime"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "day_of_date",
+      "aliases": ["date.day_of_date"],
+      "hasParameterRule": true,
+      "arity": "1|2",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [1, 2],
+      "expectedParameters": "1 or 2",
+      "requirement": "None"
+    },
+    {
+      "name": "day_of_week",
+      "aliases": ["date.day_of_week"],
+      "hasParameterRule": true,
+      "arity": "1|2",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [1, 2],
+      "expectedParameters": "1 or 2",
+      "requirement": "None"
+    },
+    {
+      "name": "day_of_year",
+      "aliases": ["date.day_of_year"],
+      "hasParameterRule": true,
+      "arity": "1|2",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [1, 2],
+      "expectedParameters": "1 or 2",
+      "requirement": "None"
+    },
+    {
+      "name": "delete_last_symbol",
+      "aliases": ["string.delete_last_symbol"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "diff_dates",
+      "aliases": ["date.diff_dates"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "diff_days",
+      "aliases": ["date.diff_days"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "diff_months",
+      "aliases": ["date.diff_months"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "directory.directory_files",
+      "aliases": ["directory_files", "counter_files", "directory.counter_files"],
+      "hasParameterRule": true,
+      "arity": "1",
+      "minParameters": 1,
+      "maxParameters": 1,
+      "allowedParameterCounts": null,
+      "expectedParameters": "1",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_bgcolor",
+      "aliases": [],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "Canvas"
+    },
+    {
+      "name": "draw.get_color",
+      "aliases": ["draw.color"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_height",
+      "aliases": ["draw.height"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "Canvas"
+    },
+    {
+      "name": "draw.get_radius",
+      "aliases": [],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_text_height",
+      "aliases": ["draw.text_height"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_text_parameters",
+      "aliases": ["draw.text_parameters"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_text_width",
+      "aliases": ["draw.text_width"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_transparent",
+      "aliases": ["draw.transparent"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "Canvas"
+    },
+    {
+      "name": "draw.get_visible",
+      "aliases": ["draw.visible"],
+      "hasParameterRule": true,
+      "arity": "1",
+      "minParameters": 1,
+      "maxParameters": 1,
+      "allowedParameterCounts": null,
+      "expectedParameters": "1",
+      "requirement": "Canvas"
+    },
+    {
+      "name": "draw.get_width",
+      "aliases": ["draw.width"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "Canvas"
+    },
+    {
+      "name": "draw.get_x1",
+      "aliases": ["draw.x1"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_x2",
+      "aliases": ["draw.x2"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_x_touch",
+      "aliases": ["draw.x_touch"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_x_touch_virtual",
+      "aliases": ["draw.x_touch_virtual", "draw.touch_virtual_x"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_y1",
+      "aliases": ["draw.y1"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_y2",
+      "aliases": ["draw.y2"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_y_touch",
+      "aliases": ["draw.y_touch"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.get_y_touch_virtual",
+      "aliases": ["draw.y_touch_virtual", "draw.touch_virtual_y"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.set_bgcolor",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "Canvas"
+    },
+    {
+      "name": "draw.set_color",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "Canvas"
+    },
+    {
+      "name": "draw.set_text",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "Canvas"
+    },
+    {
+      "name": "draw.set_transparent",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "Canvas"
+    },
+    {
+      "name": "draw.set_visible",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "Canvas"
+    },
+    {
+      "name": "draw.set_x1",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.set_x2",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.set_y1",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "draw.set_y2",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "enclose_in_symbols",
+      "aliases": ["string.enclose_in_symbols"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "ends_with",
+      "aliases": ["string.ends_with"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "exist_field",
+      "aliases": ["field.exist_field"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "exist_subdirectory",
+      "aliases": ["exist_directory", "directory.exist"],
+      "hasParameterRule": true,
+      "arity": "1|2",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [1, 2],
+      "expectedParameters": "1 or 2",
+      "requirement": "None"
+    },
+    {
+      "name": "file.average_field",
+      "aliases": ["average_field"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "file.counter",
+      "aliases": ["file.records", "records", "counter_of_records"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "file.counter_value_field",
+      "aliases": ["counter_value_field", "counter_value_field_in_file", "exist_in_file"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "file.creation_time",
+      "aliases": ["creation_time"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "file.exist_file",
+      "aliases": ["exist_file", "file.exist", "file_exist"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "file.fields_counter",
+      "aliases": ["file.fields"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "file.get_image_parameters",
+      "aliases": ["get_image_parameters", "file.image_parameters", "image_parameters"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "file.last_access_time",
+      "aliases": ["last_access_time"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "file.last_write_time",
+      "aliases": ["last_write_time"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "file.max_field",
+      "aliases": ["max_field"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "file.min_field",
+      "aliases": ["min_field"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "file.search_in_file",
+      "aliases": ["search_in_file"],
+      "hasParameterRule": true,
+      "arity": "4",
+      "minParameters": 4,
+      "maxParameters": 4,
+      "allowedParameterCounts": null,
+      "expectedParameters": "4",
+      "requirement": "None"
+    },
+    {
+      "name": "file.set_last_access_time",
+      "aliases": ["set_last_access_time"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "file.sum",
+      "aliases": ["file.sum_field"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "form.exchange_text",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "form.get_touch_position",
+      "aliases": ["form.touch_position"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "form.tile_color",
+      "aliases": ["form.color"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "form.tile_text",
+      "aliases": ["form.text", "form.get_tile_text", "form.get_text"],
+      "hasParameterRule": true,
+      "arity": "1|2",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [1, 2],
+      "expectedParameters": "1 or 2",
+      "requirement": "None"
+    },
+    {
+      "name": "form.tile_x",
+      "aliases": ["form.x", "form.get_tile_x", "form.get_x"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "form.tile_y",
+      "aliases": ["form.y", "form.get_tile_y", "form.get_y"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "get_current_directory",
+      "aliases": [],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "get_default_value",
+      "aliases": ["default_value"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "get_height_virtual",
+      "aliases": ["height_virtual", "get_virtual_height", "virtual_height"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "get_higher_directory",
+      "aliases": ["directory.get_higher_directory"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "get_image_info",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "get_screen_height",
+      "aliases": ["screen_height", "get_height_screen", "height_screen"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "get_screen_resolution",
+      "aliases": ["screen_resolution", "get_resolution", "resolution"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "get_screen_width",
+      "aliases": ["screen_width", "get_width_screen", "width_screen"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "get_unit",
+      "aliases": ["get_os", "unit", "os"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "get_width_virtual",
+      "aliases": ["width_virtual", "get_virtual_width", "virtual_width"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "gray_scale",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "4",
+      "minParameters": 4,
+      "maxParameters": 4,
+      "allowedParameterCounts": null,
+      "expectedParameters": "4",
+      "requirement": "None"
+    },
+    {
+      "name": "hash_array.get_value",
+      "aliases": ["hash_array.value", "hash.get_value", "hash.value"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "hash_array.length",
+      "aliases": ["hash.length", "hash.get_length", "hash_array.get_length"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "input_format",
+      "aliases": ["test_format"],
+      "hasParameterRule": true,
+      "arity": "2..*",
+      "minParameters": 2,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "at least 2",
+      "requirement": "None"
+    },
+    {
+      "name": "int_to_char",
+      "aliases": ["string.int_to_char", "convert_int_to_char", "string.convert_int_to_char"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "invert_colors",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "4",
+      "minParameters": 4,
+      "maxParameters": 4,
+      "allowedParameterCounts": null,
+      "expectedParameters": "4",
+      "requirement": "None"
+    },
+    {
+      "name": "key_length",
+      "aliases": ["key"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "lower",
+      "aliases": ["string.lower", "to_lower", "string.to_lower"],
+      "hasParameterRule": true,
+      "arity": "*..3",
+      "minParameters": 0,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 3",
+      "requirement": "None"
+    },
+    {
+      "name": "math.abs",
+      "aliases": ["abs"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "math.abs_diff",
+      "aliases": ["abs_diff", "math.abs_dif", "abs_dif"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.arccos",
+      "aliases": ["arccos"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.arcsin",
+      "aliases": ["arcsin"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.bin_to_decimal",
+      "aliases": ["bin_to_decimal", "math.convert_bin_to_decimal", "convert_bin_to_decimal"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "math.cbrt",
+      "aliases": ["cbrt"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.cos",
+      "aliases": ["cos"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.cosec",
+      "aliases": ["cosec"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.cosech",
+      "aliases": ["cosech"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.cosh",
+      "aliases": ["cosh"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.cotan",
+      "aliases": ["cotan"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.coth",
+      "aliases": ["coth"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.decimal",
+      "aliases": ["decimal", "math.dec", "dec"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "math.decimal_to_bin",
+      "aliases": ["decimal_to_bin", "math.convert_decimal_to_bin", "convert_decimal_to_bin"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "math.decimal_to_hex",
+      "aliases": ["decimal_to_hex", "math.Convert_decimal_to_hex", "convert_decimal_to_hex"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "math.factorial",
+      "aliases": ["factorial"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "math.hex_to_decimal",
+      "aliases": ["hex_to_decimal", "math.convert_hex_to_decimal", "convert_hex_to_decimal"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "math.is_divisible_by_n",
+      "aliases": ["is_divisible_by_n"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.log",
+      "aliases": ["log"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.log10",
+      "aliases": ["log10"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.log2",
+      "aliases": ["log2"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.max",
+      "aliases": ["max"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.min",
+      "aliases": ["min"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.odd",
+      "aliases": ["odd"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "math.random",
+      "aliases": ["random"],
+      "hasParameterRule": true,
+      "arity": "2|4",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 4],
+      "expectedParameters": "2 or 4",
+      "requirement": "None"
+    },
+    {
+      "name": "math.random_color",
+      "aliases": ["random_color"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "math.random_fullcolor",
+      "aliases": ["random_fullcolor", "math.fullcolor", "fullcolor"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "math.round",
+      "aliases": ["round"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.round_down",
+      "aliases": ["round_down"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.round_up",
+      "aliases": ["round_up"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.sec",
+      "aliases": ["sec"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.sech",
+      "aliases": ["sech"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.sin",
+      "aliases": ["sin"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.sinh",
+      "aliases": ["sinh"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.sqrt",
+      "aliases": ["sqrt"],
+      "hasParameterRule": true,
+      "arity": "1..2",
+      "minParameters": 1,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "1 to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.start_random",
+      "aliases": ["start_random"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "math.tan",
+      "aliases": ["tan"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.tanh",
+      "aliases": ["tanh"],
+      "hasParameterRule": true,
+      "arity": "*..2",
+      "minParameters": 0,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "math.truncate",
+      "aliases": ["truncate", "math.trunkate", "trunkate", "math.trunc", "trunc"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "message",
+      "aliases": ["get_message"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "message_lower",
+      "aliases": ["get_message_lower", "message_to_lower", "get_message_to_lower"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "message_upper",
+      "aliases": ["get_message_upper", "message_to_upper", "get_message_to_upper"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "money.input",
+      "aliases": ["input.money", "parse.money"],
+      "hasParameterRule": true,
+      "arity": "1..2",
+      "minParameters": 1,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "1 to 2",
+      "requirement": "None"
+    },
+    {
+      "name": "month_of_date",
+      "aliases": ["date.month_of_date"],
+      "hasParameterRule": true,
+      "arity": "1|2",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [1, 2],
+      "expectedParameters": "1 or 2",
+      "requirement": "None"
+    },
+    {
+      "name": "music_player_duration",
+      "aliases": [],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "music_player_position",
+      "aliases": [],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "only_content",
+      "aliases": ["content"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "position_n_substring",
+      "aliases": ["string.position_n_substring", "position_n_substr", "string.position_n_substr"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "pow",
+      "aliases": ["math.pow"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "prepaire",
+      "aliases": [],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "reduce_spaces",
+      "aliases": ["string.reduce_spaces"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "remove_double_quotes",
+      "aliases": ["string.remove_double_quotes"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "remove_first_last_symbols",
+      "aliases": ["string.remove_first_last_symbols"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "remove_quotes",
+      "aliases": ["string.remove_quotes"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "remove_spaces",
+      "aliases": ["string.remove_spaces"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "remove_symbol",
+      "aliases": ["remove_symbols", "string.remove_symbol", "string.remove_symbols"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "replace_between",
+      "aliases": ["string.replace_between", "replace_substring_between", "string.replace_substring_between"],
+      "hasParameterRule": true,
+      "arity": "4",
+      "minParameters": 4,
+      "maxParameters": 4,
+      "allowedParameterCounts": null,
+      "expectedParameters": "4",
+      "requirement": "None"
+    },
+    {
+      "name": "rgb_to_hex",
+      "aliases": ["string.rgb_to_hex", "convert_rgb_to_hex", "string.convert_rgb_to_hex"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "rotate_angle",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "5",
+      "minParameters": 5,
+      "maxParameters": 5,
+      "allowedParameterCounts": null,
+      "expectedParameters": "5",
+      "requirement": "None"
+    },
+    {
+      "name": "scale_image",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "6",
+      "minParameters": 6,
+      "maxParameters": 6,
+      "allowedParameterCounts": null,
+      "expectedParameters": "6",
+      "requirement": "None"
+    },
+    {
+      "name": "sound_player_duration",
+      "aliases": [],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "sound_player_position",
+      "aliases": [],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "split_to_array",
+      "aliases": ["string.split_to_array"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "split_to_fields",
+      "aliases": ["string.split_to_fields"],
+      "hasParameterRule": true,
+      "arity": "2..*",
+      "minParameters": 2,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "at least 2",
+      "requirement": "None"
+    },
+    {
+      "name": "split_to_string",
+      "aliases": ["string.split_to_string"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "split_with_separators",
+      "aliases": ["string.split_with_separators", "split_using_separators", "string.split_using_separators"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "sql_message",
+      "aliases": ["sql_mes", "get_sql_message"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "ApplicationDatabase"
+    },
+    {
+      "name": "start_diagnose",
+      "aliases": [],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "starts_with",
+      "aliases": ["start_with", "string.starts_with", "string.start_with"],
+      "hasParameterRule": true,
+      "arity": "2|3",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [2, 3],
+      "expectedParameters": "2 or 3",
+      "requirement": "None"
+    },
+    {
+      "name": "stop_diagnose",
+      "aliases": [],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.concate",
+      "aliases": ["concate", "concat", "conc", "con"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.counter_of_symbol",
+      "aliases": ["counter_of_symbol"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "string.decrypt",
+      "aliases": ["string.decode", "decrypt", "decode"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.delete_extention",
+      "aliases": ["file.delete_extention", "delete_extention"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.emailvalid",
+      "aliases": ["emailvalid"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.enclose_in_double_quotes",
+      "aliases": ["enclose_in_double_quotes"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.encrypt",
+      "aliases": ["string.encode", "encrypt", "encode"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.format",
+      "aliases": ["format"],
+      "hasParameterRule": true,
+      "arity": "2..3",
+      "minParameters": 2,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2 to 3",
+      "requirement": "None"
+    },
+    {
+      "name": "string.get_contrasting_color",
+      "aliases": ["rgb_contrast"],
+      "hasParameterRule": true,
+      "arity": "1",
+      "minParameters": 1,
+      "maxParameters": 1,
+      "allowedParameterCounts": null,
+      "expectedParameters": "1",
+      "requirement": "None"
+    },
+    {
+      "name": "string.get_extention",
+      "aliases": ["file.get_extention", "get_extention"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.insert_after_index",
+      "aliases": ["insert_after_index"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "string.insert_after_substr",
+      "aliases": ["insert_after_substr"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "string.insert_separator",
+      "aliases": ["insert_separator"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.is_integer",
+      "aliases": ["is_integer"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.is_lower",
+      "aliases": ["is_lower"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.is_number",
+      "aliases": ["is_number"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.is_numeric",
+      "aliases": ["is_numeric"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.is_text",
+      "aliases": ["is_text"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.is_upper",
+      "aliases": ["is_upper"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.length",
+      "aliases": ["length", "string.get_length", "get_length"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.md5",
+      "aliases": ["md5"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.money",
+      "aliases": ["money", "format.money"],
+      "hasParameterRule": true,
+      "arity": "1..4",
+      "minParameters": 1,
+      "maxParameters": 4,
+      "allowedParameterCounts": null,
+      "expectedParameters": "1 to 4",
+      "requirement": "None"
+    },
+    {
+      "name": "string.position",
+      "aliases": ["position", "string.position_substring", "position_substring", "indexof"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "string.repeat",
+      "aliases": ["repeat"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "string.replace",
+      "aliases": ["replace"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "string.reverse",
+      "aliases": ["reverse"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.rgb_random",
+      "aliases": ["rgb_random"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.trim",
+      "aliases": ["trim"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.trim_end",
+      "aliases": ["trim_end"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.trim_leading_symbols",
+      "aliases": ["trim_leading_symbols"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "string.trim_start",
+      "aliases": ["trim_start"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "string.trim_trailing_symbols",
+      "aliases": ["trim_trailing_symbols"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "string.upper_first",
+      "aliases": ["upper_first", "first_to_upper"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "substr",
+      "aliases": ["substring", "get_substr", "get_substring", "string.substr", "string.get_substr", "string.get_substring", "string.substring"],
+      "hasParameterRule": true,
+      "arity": "2..3",
+      "minParameters": 2,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2 to 3",
+      "requirement": "None"
+    },
+    {
+      "name": "substr_between",
+      "aliases": ["string.substr_between", "string.get_substr_between", "substring_between", "string.substring_between", "string.get_substring_between"],
+      "hasParameterRule": true,
+      "arity": "3",
+      "minParameters": 3,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "3",
+      "requirement": "None"
+    },
+    {
+      "name": "tables.exist_table",
+      "aliases": ["tables.exist", "exist_table"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "tables.field_name",
+      "aliases": ["field_name"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "tables.field_user_name",
+      "aliases": ["field_user_name"],
+      "hasParameterRule": true,
+      "arity": "2",
+      "minParameters": 2,
+      "maxParameters": 2,
+      "allowedParameterCounts": null,
+      "expectedParameters": "2",
+      "requirement": "None"
+    },
+    {
+      "name": "tables.fields_counter",
+      "aliases": ["tables.fields"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "to_degrees",
+      "aliases": ["math.to_degrees"],
+      "hasParameterRule": true,
+      "arity": "1|2",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [1, 2],
+      "expectedParameters": "1 or 2",
+      "requirement": "None"
+    },
+    {
+      "name": "to_jpg",
+      "aliases": [],
+      "hasParameterRule": true,
+      "arity": "5",
+      "minParameters": 5,
+      "maxParameters": 5,
+      "allowedParameterCounts": null,
+      "expectedParameters": "5",
+      "requirement": "None"
+    },
+    {
+      "name": "to_radians",
+      "aliases": ["math.to_radians"],
+      "hasParameterRule": true,
+      "arity": "1|2",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [1, 2],
+      "expectedParameters": "1 or 2",
+      "requirement": "None"
+    },
+    {
+      "name": "unicode_to_string",
+      "aliases": ["string.unicode_to_string", "convert_unicode_to_string", "string.convert_unicode_to_string"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "upper",
+      "aliases": ["string.upper", "to_upper", "string.to_upper"],
+      "hasParameterRule": true,
+      "arity": "*..3",
+      "minParameters": 0,
+      "maxParameters": 3,
+      "allowedParameterCounts": null,
+      "expectedParameters": "up to 3",
+      "requirement": "None"
+    },
+    {
+      "name": "value",
+      "aliases": ["get_value"],
+      "hasParameterRule": false,
+      "arity": "*",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": null,
+      "expectedParameters": "",
+      "requirement": "None"
+    },
+    {
+      "name": "week_of_date",
+      "aliases": ["date.week_of_date", "week_of_year", "date.week_of_year"],
+      "hasParameterRule": true,
+      "arity": "1|2",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [1, 2],
+      "expectedParameters": "1 or 2",
+      "requirement": "None"
+    },
+    {
+      "name": "year_of_date",
+      "aliases": ["date.year_of_date"],
+      "hasParameterRule": true,
+      "arity": "1|2",
+      "minParameters": null,
+      "maxParameters": null,
+      "allowedParameterCounts": [1, 2],
+      "expectedParameters": "1 or 2",
+      "requirement": "None"
+    }
+  ],
+  "actions": [
+    {
+      "name": "array",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "add",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "change",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "clear",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "close",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "const",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "copy",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "copy_array",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "create",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "create_service",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "db_backup",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "db_restore",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "delay",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "delete",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "download",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "draw",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "driver_list",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "echo",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "exit",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "get",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "insert_after",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "insert_before",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "insert_line_after",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "insert_line_before",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "join",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "log",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "merge",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "merge_all_scripts",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "message",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "message_long",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "message_short",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "music",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "parsing",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "preformat",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "print",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "read",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "redraw",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "reduce_gups",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "reload",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "remove",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "rename",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "replace",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "restore",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "rewrite",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "rewrite_all_scripts",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "run",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "save",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "search",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "select",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "select_record",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "set",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "sound",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "split",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "start",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "stop",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "trace",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "trace_as_is",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "trace_asis",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "trace_full",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "assert",
+      "match": "Exact",
+      "parameterRule": "NonEmpty",
+      "runtimeRequirement": "None",
+      "syntax": "<condition> [message=<text>]"
+    },
+    {
+      "name": "test_run",
+      "match": "Exact",
+      "parameterRule": "NonEmpty",
+      "runtimeRequirement": "None",
+      "syntax": "dir=<path> [manifest=<file>] [mode=<all|runtime|validator>] [verbose=<0|1>]"
+    },
+    {
+      "name": "update_all_records",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "update_file",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "update_records",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "upload",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "write_record",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "return",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "break",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "continue",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "foreach",
+      "match": "Exact",
+      "parameterRule": "NonEmpty",
+      "runtimeRequirement": "None",
+      "syntax": "<variable> in <array[]> sec=<section>"
+    },
+    {
+      "name": "while",
+      "match": "Exact",
+      "parameterRule": "NonEmpty",
+      "runtimeRequirement": "None",
+      "syntax": "<condition> sec=<section>"
+    },
+    {
+      "name": "for",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "call",
+      "match": "Exact",
+      "parameterRule": "CallTarget",
+      "runtimeRequirement": "None",
+      "syntax": "<type>=<name>"
+    },
+    {
+      "name": "db_use",
+      "match": "Exact",
+      "parameterRule": "NonEmpty",
+      "runtimeRequirement": "None",
+      "syntax": "<db>"
+    },
+    {
+      "name": "CRYPTO_ENCRYPT",
+      "match": "Exact",
+      "parameterRule": "CryptoValueKey",
+      "runtimeRequirement": "None",
+      "syntax": "value=<v> key=<k> [OUTPUT(<x>)]"
+    },
+    {
+      "name": "CRYPTO_DECRYPT",
+      "match": "Exact",
+      "parameterRule": "CryptoValueKey",
+      "runtimeRequirement": "None",
+      "syntax": "value=<v> key=<k> [OUTPUT(<x>)]"
+    },
+    {
+      "name": "CRYPTO_FILTER_CSV",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CRYPTO_REKEY_DATABASE",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CLIPBOARD_SET",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "fil",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "timer",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "thumb",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "create_thumb",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "notif",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "delete_rec",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "update_current",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "update_record",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "directory_l",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "dir_l",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "search_dir",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "SQL_SECURITY_ADD_PROTECTED_SCRIPT",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "SystemDatabase",
+      "syntax": "master=<s> script=<s> OUTPUT(<x>)"
+    },
+    {
+      "name": "SQL_SECURITY_SET_PROTECTED_SCRIPTS",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "SystemDatabase",
+      "syntax": ""
+    },
+    {
+      "name": "SQL_SECURITY_INIT_PROTECTED_SCRIPTS",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "SystemDatabase",
+      "syntax": "OUTPUT(<x>)"
+    },
+    {
+      "name": "SQL_SECURITY_IS_UNLOCKED",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "SystemDatabase",
+      "syntax": ""
+    },
+    {
+      "name": "SQL_SECURITY_NEEDS_ACCESS_KEY",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "SystemDatabase",
+      "syntax": ""
+    },
+    {
+      "name": "SQL_SECURITY_ACCESS_ENABLED",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "SystemDatabase",
+      "syntax": ""
+    },
+    {
+      "name": "SQL_SECURITY_VERIFY_ACCESS_KEY",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "SystemDatabase",
+      "syntax": ""
+    },
+    {
+      "name": "SQL_SECURITY_SET_ACCESS_KEY",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "SystemDatabase",
+      "syntax": ""
+    },
+    {
+      "name": "SQL_SECURITY_CHANGE_ACCESS_KEY",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "SystemDatabase",
+      "syntax": ""
+    },
+    {
+      "name": "SQL_SECURITY_DISABLE_ACCESS_KEY",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "SystemDatabase",
+      "syntax": ""
+    },
+    {
+      "name": "SQL_DROP",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "ApplicationDatabase",
+      "syntax": "SQL_DROP_TABLE table(<t>)"
+    },
+    {
+      "name": "SQL_CREATE_TABLE",
+      "match": "Exact",
+      "parameterRule": "None",
+      "runtimeRequirement": "ApplicationDatabase",
+      "syntax": "SQL_CREATE_TABLE table(<t>) fields(<f:type,...>)"
+    },
+    {
+      "name": "SQL_ENSURE",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "ApplicationDatabase",
+      "syntax": "SQL_ENSURE_COLUMN table(<t>) field(<f:type>)"
+    },
+    {
+      "name": "SQL_LIST_COLUMNS",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "ApplicationDatabase",
+      "syntax": "SQL_LIST_COLUMNS table(<t>) OUTPUT(<x>)"
+    },
+    {
+      "name": "SQL_INSERT",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "ApplicationDatabase",
+      "syntax": "SQL_INSERT INTO <t>(<f>) VALUES(<v>)"
+    },
+    {
+      "name": "SQL_UPDATE",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "ApplicationDatabase",
+      "syntax": "SQL_UPDATE table(<t>) FIELDS(<a>) [WHERE(...)]"
+    },
+    {
+      "name": "SQL_DELETE",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "ApplicationDatabase",
+      "syntax": "SQL_DELETE FROM <t> [WHERE(...)]"
+    },
+    {
+      "name": "SQL_SELECT_SUM",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "ApplicationDatabase",
+      "syntax": "SQL_SELECT_SUM <f> FROM <t> [WHERE(...)] OUTPUT(<x>)"
+    },
+    {
+      "name": "SQL_SELECT_COUNT",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "ApplicationDatabase",
+      "syntax": "SQL_SELECT_COUNT TABLE(<t>) [WHERE(...)] OUTPUT(<x>)"
+    },
+    {
+      "name": "SQL_SELECT_AVG",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "ApplicationDatabase",
+      "syntax": "SQL_SELECT_AVG <f> FROM <t> [WHERE(...)] OUTPUT(<x>)"
+    },
+    {
+      "name": "SQL_SELECT",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "ApplicationDatabase",
+      "syntax": "SQL_SELECT <f> FROM <t> [WHERE(...)] [OUTPUT(<x>)]"
+    },
+    {
+      "name": "SQL_EXIST",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "ApplicationDatabase",
+      "syntax": "SQL_EXIST <t> OUTPUT(<x>)"
+    },
+    {
+      "name": "CHART_BEGIN",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_VALUES_FROM_FILE",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_VALUES_FROM_ARRAY",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_VALUES",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_FROM_FILE",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_BIND",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_ARRAY_VALUES",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_ARRAY_LABELS",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_LABELS_FROM_ARRAY",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_ARRAY_COLORS",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_COLORS_FROM_ARRAY",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_SET",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_LINE",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    },
+    {
+      "name": "CHART_DRAW",
+      "match": "Prefix",
+      "parameterRule": "None",
+      "runtimeRequirement": "None",
+      "syntax": ""
+    }
+  ],
+  "blocks": [
+    {
+      "type": "SECTION",
+      "startToken": "sec",
+      "startMatch": "Prefix",
+      "endToken": "sec",
+      "endMatch": "Prefix"
+    },
+    {
+      "type": "ACTION",
+      "startToken": "act",
+      "startMatch": "Prefix",
+      "endToken": "act",
+      "endMatch": "Prefix"
+    },
+    {
+      "type": "MENU",
+      "startToken": "menu",
+      "startMatch": "Prefix",
+      "endToken": "menu",
+      "endMatch": "Exact"
+    },
+    {
+      "type": "LIST",
+      "startToken": "list",
+      "startMatch": "Prefix",
+      "endToken": "list",
+      "endMatch": "Exact"
+    },
+    {
+      "type": "DIALOG",
+      "startToken": "dia",
+      "startMatch": "Prefix",
+      "endToken": "dia",
+      "endMatch": "Prefix"
+    },
+    {
+      "type": "FORM",
+      "startToken": "form",
+      "startMatch": "Prefix",
+      "endToken": "form",
+      "endMatch": "Exact"
+    },
+    {
+      "type": "POPUPMENU",
+      "startToken": "popupmenu",
+      "startMatch": "Prefix",
+      "endToken": "popupmenu",
+      "endMatch": "Exact"
+    }
+  ],
+  "scene": {
+    "type": "SCENE",
+    "startKeyword": "scene",
+    "valueSeparator": "=",
+    "endPrefix": "end",
+    "endContains": "scene",
+    "implicitNextStart": true,
+    "implicitEof": true,
+    "nameRequired": true
+  },
+  "conditions": [
+    {
+      "kind": "Keyword",
+      "token": "if",
+      "role": "Open",
+      "keywordRole": "Open",
+      "expressionRequired": true
+    },
+    {
+      "kind": "Keyword",
+      "token": "elseif",
+      "role": "ElseIf",
+      "keywordRole": "ElseIf",
+      "expressionRequired": true
+    },
+    {
+      "kind": "Keyword",
+      "token": "else",
+      "role": "Else",
+      "keywordRole": "Else",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Keyword",
+      "token": "endif",
+      "role": "EndIf",
+      "keywordRole": "EndIf",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Operator",
+      "token": "==",
+      "role": "Compare",
+      "keywordRole": "None",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Operator",
+      "token": "!=",
+      "role": "Compare",
+      "keywordRole": "None",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Operator",
+      "token": ">",
+      "role": "Compare",
+      "keywordRole": "None",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Operator",
+      "token": "<",
+      "role": "Compare",
+      "keywordRole": "None",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Operator",
+      "token": ">=",
+      "role": "Compare",
+      "keywordRole": "None",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Operator",
+      "token": "<=",
+      "role": "Compare",
+      "keywordRole": "None",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Operator",
+      "token": "contains",
+      "role": "Contains",
+      "keywordRole": "None",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Operator",
+      "token": "><",
+      "role": "Contains",
+      "keywordRole": "None",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Operator",
+      "token": "<>",
+      "role": "NotContains",
+      "keywordRole": "None",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Operator",
+      "token": "&&",
+      "role": "LogicalAnd",
+      "keywordRole": "None",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Operator",
+      "token": "&",
+      "role": "LogicalAnd",
+      "keywordRole": "None",
+      "expressionRequired": false
+    },
+    {
+      "kind": "Operator",
+      "token": "||",
+      "role": "LogicalOr",
+      "keywordRole": "None",
+      "expressionRequired": false
+    }
+  ],
+  "operators": ["==", "!=", ">", "<", ">=", "<=", "contains", "><", "<>", "&&", "&", "||"],
+  "ui": {
+    "windows": {
+      "portrait": {
+        "source": "c:/baselscript/MYDATA\\system\\_parameters_portrait_win",
+        "loaded": true,
+        "loadError": "",
+        "count": 28,
+        "defaults": [
+          {
+            "type": "scene",
+            "fragment": "topmenu",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 800,
+            "height": 65
+          },
+          {
+            "type": "form",
+            "fragment": "text",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 800,
+            "height": 65
+          },
+          {
+            "type": "form",
+            "fragment": "input",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 755,
+            "height": 65
+          },
+          {
+            "type": "form",
+            "fragment": "button",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 255,
+            "height": 65
+          },
+          {
+            "type": "form",
+            "fragment": "togglebutton",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 255,
+            "height": 65
+          },
+          {
+            "type": "form",
+            "fragment": "spinner",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 200,
+            "height": 65
+          },
+          {
+            "type": "form",
+            "fragment": "seekbar",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 200,
+            "height": 65
+          },
+          {
+            "type": "form",
+            "fragment": "checkbox",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 200,
+            "height": 65
+          },
+          {
+            "type": "form",
+            "fragment": "radiobutton",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 255,
+            "height": 65
+          },
+          {
+            "type": "form",
+            "fragment": "switch",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 200,
+            "height": 65
+          },
+          {
+            "type": "form",
+            "fragment": "image",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 0,
+            "height": 65
+          },
+          {
+            "type": "form",
+            "fragment": "image_tile",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 0,
+            "height": 65
+          },
+          {
+            "type": "form",
+            "fragment": "rect",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 0,
+            "height": 65
+          },
+          {
+            "type": "menu",
+            "fragment": "title",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 800,
+            "height": 45
+          },
+          {
+            "type": "menu",
+            "fragment": "item",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 800,
+            "height": 45
+          },
+          {
+            "type": "dialog",
+            "fragment": "title",
+            "style": "normal",
+            "gravity": "center",
+            "size": 34,
+            "weight": "normal",
+            "width": 700,
+            "height": 65
+          },
+          {
+            "type": "dialog",
+            "fragment": "text1",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 700,
+            "height": 65
+          },
+          {
+            "type": "dialog",
+            "fragment": "input1",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 700,
+            "height": 65
+          },
+          {
+            "type": "dialog",
+            "fragment": "text2",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 700,
+            "height": 65
+          },
+          {
+            "type": "dialog",
+            "fragment": "input2",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 700,
+            "height": 65
+          },
+          {
+            "type": "dialog",
+            "fragment": "text3",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 700,
+            "height": 65
+          },
+          {
+            "type": "dialog",
+            "fragment": "input3",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 700,
+            "height": 65
+          },
+          {
+            "type": "dialog",
+            "fragment": "text4",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 700,
+            "height": 65
+          },
+          {
+            "type": "dialog",
+            "fragment": "input4",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 700,
+            "height": 65
+          },
+          {
+            "type": "dialog",
+            "fragment": "button",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 180,
+            "height": 65
+          },
+          {
+            "type": "list",
+            "fragment": "title",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 800,
+            "height": 65
+          },
+          {
+            "type": "list",
+            "fragment": "item",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 800,
+            "height": 69
+          },
+          {
+            "type": "list",
+            "fragment": "button",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 255,
+            "height": 65
+          }
+        ]
+      },
+      "landscape": {
+        "source": "c:/baselscript/MYDATA\\system\\_parameters_landscape_win",
+        "loaded": true,
+        "loadError": "",
+        "count": 34,
+        "defaults": [
+          {
+            "type": "scene",
+            "fragment": "topmenu",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1280,
+            "height": 70
+          },
+          {
+            "type": "form",
+            "fragment": "text",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1280,
+            "height": 70
+          },
+          {
+            "type": "form",
+            "fragment": "input",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1280,
+            "height": 70
+          },
+          {
+            "type": "form",
+            "fragment": "button",
+            "style": "normal",
+            "gravity": "left",
+            "size": 30,
+            "weight": "normal",
+            "width": 200,
+            "height": 70
+          },
+          {
+            "type": "form",
+            "fragment": "togglebutton",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 300,
+            "height": 70
+          },
+          {
+            "type": "form",
+            "fragment": "spinner",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 300,
+            "height": 70
+          },
+          {
+            "type": "form",
+            "fragment": "seekbar",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1280,
+            "height": 70
+          },
+          {
+            "type": "form",
+            "fragment": "checkbox",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 200,
+            "height": 70
+          },
+          {
+            "type": "form",
+            "fragment": "radiobutton",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 201,
+            "height": 70
+          },
+          {
+            "type": "form",
+            "fragment": "switch",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 200,
+            "height": 70
+          },
+          {
+            "type": "form",
+            "fragment": "image",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 0,
+            "height": 70
+          },
+          {
+            "type": "form",
+            "fragment": "image_tile",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 0,
+            "height": 70
+          },
+          {
+            "type": "form",
+            "fragment": "rect",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 0,
+            "height": 70
+          },
+          {
+            "type": "menu",
+            "fragment": "title",
+            "style": "normal",
+            "gravity": "center",
+            "size": 34,
+            "weight": "normal",
+            "width": 1280,
+            "height": 40
+          },
+          {
+            "type": "menu",
+            "fragment": "item",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1280,
+            "height": 35
+          },
+          {
+            "type": "dialog",
+            "fragment": "input",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "title",
+            "style": "normal",
+            "gravity": "center",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "message",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "text",
+            "style": "normal",
+            "gravity": "center",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "text1",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "input1",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "text2",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "input2",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "text3",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "input3",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "text4",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "input4",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "text5",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "input5",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "type": "dialog",
+            "fragment": "button",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 200,
+            "height": 70
+          },
+          {
+            "type": "list",
+            "fragment": "title",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1280,
+            "height": 70
+          },
+          {
+            "type": "list",
+            "fragment": "message",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1280,
+            "height": 70
+          },
+          {
+            "type": "list",
+            "fragment": "item",
+            "style": "normal",
+            "gravity": "left",
+            "size": 34,
+            "weight": "normal",
+            "width": 1280,
+            "height": 50
+          },
+          {
+            "type": "list",
+            "fragment": "button",
+            "style": "normal",
+            "gravity": "left",
+            "size": 32,
+            "weight": "normal",
+            "width": 240,
+            "height": 70
+          }
+        ]
+      }
+    }
+  }
+}

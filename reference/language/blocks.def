@@ -1,0 +1,21 @@
+// BaselScript structural block definitions
+//
+// Format:
+// type;start_token;start_match;end_token;end_match
+//
+// match:
+//   Exact  = token must match completely
+//   Prefix = legacy StartsWith(...) behavior
+//
+// Order is significant and preserves StructureValidator legacy behavior.
+//
+// SCENE is intentionally not in this file yet.
+// It has special grammar: SCENE=<name> and END SCENE [name].
+
+SECTION;sec;Prefix;sec;Prefix
+ACTION;act;Prefix;act;Prefix
+MENU;menu;Prefix;menu;Exact
+LIST;list;Prefix;list;Exact
+DIALOG;dia;Prefix;dia;Prefix
+FORM;form;Prefix;form;Exact
+POPUPMENU;popupmenu;Prefix;popupmenu;Exact
