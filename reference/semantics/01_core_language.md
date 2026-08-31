@@ -466,7 +466,87 @@ Do not infer side effects from the function name alone.
 
 ---
 
-## 15. Source-of-truth rule
+## 15. Physical lines and line continuation
+
+Status: VERIFIED BY CURRENT VALIDATOR / REGRESSION
+
+A BaselScript statement is normally written on one physical source line.
+
+### Recommended line length
+
+As a readability rule, keep a BaselScript statement on one physical line when it is approximately **80 characters or shorter**.
+
+The 80-character value is a **style recommendation**, not a validator or runtime syntax limit.
+
+Do not split a statement only for visual formatting when it fits comfortably on one line.
+
+Preferred:
+
+```baselscript
+message $concat(#first_name," ",#last_name," / ",#city)
+```
+
+Avoid unnecessary formatting such as:
+
+```text
+message $concat(
+    #first_name," ",
+    #last_name," / ",
+    #city)
+```
+
+Parentheses do **not** automatically continue a BaselScript statement onto the next physical line.
+
+### Use `\` when a statement is continued
+
+When a statement becomes clearly longer than about 80 characters, or when splitting it materially improves readability, it may be distributed across multiple physical source lines.
+
+Every physical line that continues onto the following line must end with the continuation character `\`.
+
+Canonical multiline form:
+
+```baselscript
+message $concat( \
+    #first_name," ", \
+    #last_name," / ", \
+    #city)
+```
+
+The last physical line of the logical statement does not need a continuation character because the statement ends there.
+
+Another example:
+
+```baselscript
+#text=$concat( \
+    #first_name," ", \
+    #last_name)
+```
+
+Wrong:
+
+```text
+#text=$concat(
+    #first_name," ",
+    #last_name)
+```
+
+The validator may interpret the following physical line as a new statement because no continuation marker was present.
+
+### AI generation rule
+
+For newly generated BaselScript:
+
+1. keep a statement on one physical line when it is approximately 80 characters or shorter;
+2. do not introduce line breaks merely because another programming language would format arguments vertically;
+3. if a longer statement is split across physical lines, end every continued physical line with `\`;
+4. do not rely on parentheses, commas or indentation as implicit continuation syntax;
+5. treat the 80-character value as a readability guideline, not as a syntax restriction.
+
+Existing source may contain compatibility or historical continuation forms. Preserve working historical code when reviewing an existing script, but prefer `\` in newly generated multiline BaselScript.
+
+---
+
+## 16. Source-of-truth rule
 
 Status: NORMATIVE REFERENCE RULE
 
@@ -495,7 +575,7 @@ Both layers are required for reliable AI generation.
 
 ---
 
-## 16. Do not invent syntax
+## 17. Do not invent syntax
 
 Status: NORMATIVE REFERENCE RULE
 
@@ -518,7 +598,7 @@ Do not substitute syntax from:
 
 ---
 
-## 17. Scope limits of this file
+## 18. Scope limits of this file
 
 This file intentionally does not define:
 
@@ -532,105 +612,3 @@ This file intentionally does not define:
 - complete platform-specific behavior
 
 Those belong to their routed semantic categories.
-
----
-
-## 8. Comments
-
-Status: VERIFIED BY CURRENT NORMALIZATION / RUNTIME PIPELINE
-
-Current source preprocessing recognizes comments before validation/execution.
-
-Supported forms include:
-
-```baselscript
-// whole-line comment
-
-#value=10 // trailing comment
-
-/*
-multi-line
-block comment
-*/
-```
-
-Current normalization also preserves comment markers that occur inside quoted text rather than treating them as comments.
-
-Generation rule:
-
-- use short `//` comments for ordinary generated examples;
-- use comments to explain a rule, constraint, reason or non-obvious boundary;
-- do not rely on comments to repair invalid syntax.
-
----
-
-## 9. Physical-line continuation
-
-Status: VERIFIED BY CURRENT NORMALIZER / REAL SCRIPTS
-
-BaselScript source can combine several physical lines into one logical instruction.
-
-### Backslash continuation
-
-The normal current style for long statements is a trailing backslash:
-
-```baselscript
-SQL_SELECT id,first_name,last_name \
-    FROM persons \
-    ORDER BY id DESC \
-    OUTPUT(#_directory_files,PERSONS_TEMP.csv)
-```
-
-The backslash is a source continuation marker. It is not part of the final logical instruction.
-
-### Tilde continuation
-
-The current normalizer also supports a trailing:
-
-```text
-~
-```
-
-for continuation.
-
-This is a supported compatibility/source form. Do not replace a working `~` continuation automatically.
-
-### Angle continuation
-
-The current normalizer also retains the historical `>` continuation family, including source fragments shaped as:
-
-```text
-first>
->middle>
->last
-```
-
-Treat this as compatibility syntax. For new generated multi-line examples prefer the established backslash form unless the target project uses another verified style.
-
-Generation rules:
-
-- never invent a continuation symbol;
-- preserve the existing working continuation style when editing a script;
-- for new reference examples, prefer `\` where a statement must span physical lines.
-
----
-
-## 10. Logical source before validation
-
-Status: VERIFIED BY CURRENT NORMALIZATION PIPELINE
-
-Validation and execution operate on normalized logical source, not blindly on the original physical lines.
-
-Relevant preprocessing includes:
-
-```text
-physical source
--> line continuation normalization
--> comment removal
--> logical source
--> validator
--> runtime
-```
-
-This distinction matters when diagnosing a reported line: the user-facing source must remain traceable even when several physical lines form one executable instruction.
-
