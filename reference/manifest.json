@@ -1,1 +1,128 @@
-
+{
+  "schema": "baselscript-reference-manifest-v1",
+  "reference_version": "clean-v1-audited",
+  "generated_from_language_contract": true,
+  "machine_contract": {
+    "directory": "language",
+    "files": [
+      "language/functions.def",
+      "language/actions.def",
+      "language/blocks.def",
+      "language/conditions.def",
+      "language/scene.def",
+      "language/baselscript-language.json"
+    ],
+    "rule": "The .def files and generated JSON define names, aliases, arity, structural tokens and runtime requirements. They do not by themselves define every source-level invocation form or side effect."
+  },
+  "baseline_required": [
+    "AI_CONTEXT.md",
+    "semantics/00_INDEX.md",
+    "semantics/01_core_language.md",
+    "language/baselscript-language.json"
+  ],
+  "task_routes": {
+    "structure": [
+      "semantics/02_structure.md",
+      "language/blocks.def",
+      "language/scene.def"
+    ],
+    "call_execution": [
+      "semantics/03_call_execution.md",
+      "language/actions.def",
+      "language/blocks.def",
+      "language/scene.def"
+    ],
+    "control_flow": [
+      "semantics/04_control_flow.md",
+      "language/conditions.def",
+      "language/actions.def"
+    ],
+    "ui": [
+      "semantics/05_ui.md",
+      "language/blocks.def",
+      "language/actions.def",
+      "language/baselscript-language.json"
+    ],
+    "files_data": [
+      "semantics/06_files_data.md",
+      "language/actions.def",
+      "language/functions.def"
+    ],
+    "arrays_hash": [
+      "semantics/07_arrays_hash.md",
+      "language/functions.def",
+      "language/actions.def"
+    ],
+    "functions_strings": [
+      "semantics/08_functions_strings.md",
+      "language/functions.def"
+    ],
+    "math": [
+      "semantics/09_math.md",
+      "language/functions.def"
+    ],
+    "date_time": [
+      "semantics/10_date_time.md",
+      "language/functions.def"
+    ],
+    "database_sql": [
+      "semantics/11_database_sql.md",
+      "language/actions.def",
+      "language/functions.def"
+    ],
+    "security_crypto": [
+      "semantics/12_security_crypto.md",
+      "language/actions.def"
+    ],
+    "graphics": [
+      "semantics/13_graphics.md",
+      "language/actions.def",
+      "language/functions.def"
+    ],
+    "charts": [
+      "semantics/14_charts.md",
+      "language/actions.def"
+    ],
+    "network_media_device": [
+      "semantics/15_network_media_device.md",
+      "language/actions.def",
+      "language/functions.def"
+    ],
+    "script_meta": [
+      "semantics/16_script_meta.md",
+      "language/actions.def"
+    ],
+    "testing": [
+      "semantics/17_testing.md",
+      "language/actions.def",
+      "language/conditions.def"
+    ],
+    "platform": [
+      "semantics/18_platform.md",
+      "language/baselscript-language.json",
+      "language/actions.def"
+    ]
+  },
+  "evidence_files": [
+    "evidence/COVERAGE.md",
+    "evidence/UNVERIFIED.md",
+    "evidence/REMOVED.md",
+    "evidence/SEMANTIC_REBUILD_STATUS.md",
+    "evidence/AUDIT_REPORT.md"
+  ],
+  "generation_policy": {
+    "prefer_canonical_names": true,
+    "do_not_invent_syntax": true,
+    "do_not_promote_unverified_corpus_forms": true,
+    "semantic_docs_override_guessing": true,
+    "if_semantics_missing": "Say that the current reference does not document the required source-level form; do not infer it from another language."
+  },
+  "source_authority": [
+    "confirmed current runtime/regression",
+    "current language/*.def",
+    "generated language/baselscript-language.json",
+    "current semantics/*.md",
+    "repeated real-script evidence",
+    "rare/historical evidence"
+  ]
+}
