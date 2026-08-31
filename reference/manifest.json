@@ -1,0 +1,162 @@
+{
+  "schema": "baselscript-reference-manifest-v1",
+  "reference_version": "clean-v1-audited-pathfix-ui-2026-08-31",
+  "generated_from_language_contract": true,
+  "machine_contract": {
+    "directory": "reference/language",
+    "files": [
+      "reference/language/functions.def",
+      "reference/language/actions.def",
+      "reference/language/blocks.def",
+      "reference/language/conditions.def",
+      "reference/language/scene.def",
+      "reference/language/baselscript-language.json"
+    ],
+    "rule": "The .def files and generated JSON define names, aliases, arity, structural tokens and runtime requirements. They do not by themselves define every source-level invocation form or side effect."
+  },
+  "baseline_required": [
+    "reference/AI_CONTEXT.md",
+    "reference/semantics/00_INDEX.md",
+    "reference/semantics/01_core_language.md",
+    "reference/language/baselscript-language.json"
+  ],
+  "task_routes": {
+    "structure": [
+      "reference/semantics/02_structure.md",
+      "reference/language/blocks.def",
+      "reference/language/scene.def"
+    ],
+    "call_execution": [
+      "reference/semantics/03_call_execution.md",
+      "reference/language/actions.def",
+      "reference/language/blocks.def",
+      "reference/language/scene.def"
+    ],
+    "control_flow": [
+      "reference/semantics/04_control_flow.md",
+      "reference/language/conditions.def",
+      "reference/language/actions.def"
+    ],
+    "ui": [
+      "reference/semantics/05_ui.md",
+      "reference/language/blocks.def",
+      "reference/language/actions.def",
+      "reference/language/baselscript-language.json"
+    ],
+    "form": [
+      "reference/semantics/05_ui.md",
+      "reference/semantics/19_form.md",
+      "reference/language/blocks.def",
+      "reference/language/actions.def",
+      "reference/language/baselscript-language.json"
+    ],
+    "list": [
+      "reference/semantics/05_ui.md",
+      "reference/semantics/20_list.md",
+      "reference/language/blocks.def",
+      "reference/language/actions.def",
+      "reference/language/baselscript-language.json"
+    ],
+    "dialog": [
+      "reference/semantics/05_ui.md",
+      "reference/semantics/21_dialog.md",
+      "reference/language/blocks.def",
+      "reference/language/actions.def",
+      "reference/language/baselscript-language.json"
+    ],
+    "files_data": [
+      "reference/semantics/06_files_data.md",
+      "reference/language/actions.def",
+      "reference/language/functions.def"
+    ],
+    "arrays_hash": [
+      "reference/semantics/07_arrays_hash.md",
+      "reference/language/functions.def",
+      "reference/language/actions.def"
+    ],
+    "functions_strings": [
+      "reference/semantics/08_functions_strings.md",
+      "reference/language/functions.def"
+    ],
+    "math": [
+      "reference/semantics/09_math.md",
+      "reference/language/functions.def"
+    ],
+    "date_time": [
+      "reference/semantics/10_date_time.md",
+      "reference/language/functions.def"
+    ],
+    "database_sql": [
+      "reference/semantics/11_database_sql.md",
+      "reference/language/actions.def",
+      "reference/language/functions.def"
+    ],
+    "security_crypto": [
+      "reference/semantics/12_security_crypto.md",
+      "reference/language/actions.def"
+    ],
+    "graphics": [
+      "reference/semantics/13_graphics.md",
+      "reference/language/actions.def",
+      "reference/language/functions.def"
+    ],
+    "charts": [
+      "reference/semantics/14_charts.md",
+      "reference/language/actions.def"
+    ],
+    "network_media_device": [
+      "reference/semantics/15_network_media_device.md",
+      "reference/language/actions.def",
+      "reference/language/functions.def"
+    ],
+    "script_meta": [
+      "reference/semantics/16_script_meta.md",
+      "reference/language/actions.def"
+    ],
+    "testing": [
+      "reference/semantics/17_testing.md",
+      "reference/language/actions.def",
+      "reference/language/conditions.def"
+    ],
+    "platform": [
+      "reference/semantics/18_platform.md",
+      "reference/language/baselscript-language.json",
+      "reference/language/actions.def"
+    ]
+  },
+  "evidence_files": [
+    "reference/evidence/COVERAGE.md",
+    "reference/evidence/UNVERIFIED.md",
+    "reference/evidence/REMOVED.md",
+    "reference/evidence/SEMANTIC_REBUILD_STATUS.md",
+    "reference/evidence/AUDIT_REPORT.md"
+  ],
+  "generation_policy": {
+    "prefer_canonical_names": true,
+    "do_not_invent_syntax": true,
+    "do_not_promote_unverified_corpus_forms": true,
+    "semantic_docs_override_guessing": true,
+    "if_semantics_missing": "Say that the current reference does not document the required source-level form; do not infer it from another language."
+  },
+  "source_authority": [
+    "confirmed current runtime/regression",
+    "current reference/language/*.def",
+    "generated reference/language/baselscript-language.json",
+    "current reference/semantics/*.md",
+    "repeated real-script evidence",
+    "rare/historical evidence"
+  ],
+  "path_base": "repository_root",
+  "repository_layout": {
+    "reference_root": "reference",
+    "entrypoints": [
+      "reference/manifest.json",
+      "reference/AI_CONTEXT.md"
+    ]
+  },
+  "path_resolution_rule": "Every path in this manifest is relative to the Git repository root. Do not resolve paths relative to reference/manifest.json and do not drop the leading reference/ directory.",
+  "bootstrap_urls": [
+    "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/manifest.json",
+    "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/AI_CONTEXT.md"
+  ]
+}
