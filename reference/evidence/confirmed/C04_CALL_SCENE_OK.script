@@ -1,0 +1,19 @@
+// TEST: C04
+// CHECK: call scene=<name> to another scene in the same script
+// EXPECT: OK, message "C04 OK"
+
+SCENE=1 title="C04 scene one"
+
+SECTION init
+    call scene=second
+END
+
+END SCENE
+
+SCENE=second title="C04 scene two"
+
+SECTION init
+    message "C04 OK"
+END
+
+END SCENE
