@@ -58,6 +58,59 @@ tile=item row=2 col=2 text=#birthday w=280
 
 Do not rely only on the `col` number for cross-row alignment.
 
+## Static LIST lifecycle
+
+Status: VERIFIED BY RUNTIME / REGRESSION / REAL SCRIPTS
+
+A static LIST is displayed with:
+
+```baselscript
+call list=<name>
+```
+
+Do not generate:
+
+```baselscript
+draw list=<name>
+```
+
+`draw form=<name>` is used for FORM.
+A LIST is invoked with `call list=<name>`.
+
+Canonical pattern:
+
+```baselscript
+SCENE=1 title="Example Person"
+
+SECTION init
+    read file=example_person dir=#_directory_files_examples
+    call list=person_list
+END
+
+LIST person_list
+
+    tile=file name=example_person
+
+    tile=item row=1 col=1 text=#first_name w=280
+    tile=item row=1 col=2 text=#last_name w=280
+
+    tile=item row=2 col=1 text=#city w=280
+    tile=item row=2 col=2 text=#birthday w=280
+
+END
+
+END SCENE 1
+```
+
+Generation rule:
+
+```text
+FORM   -> draw form=<name>
+LIST   -> call list=<name>
+MENU   -> call menu=<name>
+DIALOG -> call dialog=<name>
+```
+
 ## One-line text versus real columns
 
 If independent values must occupy separate visual columns, use `row` / `col`.
@@ -91,4 +144,6 @@ tile=select sec=selected_person
 - Expect the same row/column structure to repeat for every source record.
 - Use explicit matching `w` values when columns must align across rows.
 - Prefer `row` / `col` over concatenated text when true columns are requested.
+- Display a static LIST with `call list=<name>`.
+- Do not generate `draw list=<name>`.
 - Do not invent alternative LIST column APIs.
