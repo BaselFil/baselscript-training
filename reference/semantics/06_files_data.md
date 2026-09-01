@@ -1,78 +1,66 @@
 # File and data semantics
 
-Status: VERIFIED BY CURRENT PROJECT EVIDENCE / REAL SCRIPT PATTERNS
+Status: VERIFIED BY CURRENT RUNTIME / REAL SCRIPT PATTERNS
 
-This file documents source-level file declaration and file reading patterns used by
-current BaselScript examples.
+This file documents structured file declaration, record mapping, reading and
+integration with LIST/FORM workflows.
 
-## File declaration
+## Structured file declaration belongs inside the SCENE
 
-A structured file can declare the variables that represent one record.
+A structured `file ... record=(...) ...` declaration used by a scene must be inside
+that `SCENE`. For normal initialization, place it in `SECTION init`.
 
-Canonical pattern:
-
-```baselscript
-file name=example_person \
-    record=(#first_name,#last_name,#city,#street,#birthday) \
-    dir=#_directory_files_examples
-```
-
-Rules:
-
-- `name=` identifies the BaselScript file definition.
-- `record=(...)` maps the fields of one file record to BaselScript variables.
-- `dir=` identifies the directory that contains the file.
-- If a long statement is split across physical lines, every continued line must end
-  with `\`.
-- Do not replace `name=` with an undocumented alternative when generating new code.
-
-## Read during scene initialization
-
-When the task is to load file data when a scene starts, place the read operation in
-`SECTION init`.
+The declaration must appear before the corresponding `read file=...`.
 
 Canonical pattern:
 
 ```baselscript
+SCENE=1 title="Example"
+
 SECTION init
+
+    file name=example_person \
+        record=(#first_name,#last_name,#city,#street,#birthday) \
+        dir=#_directory_files_examples
+
     read file=example_person dir=#_directory_files_examples
+
 END
+
+END SCENE 1
 ```
 
-For a file-backed LIST that must be shown immediately after loading, use:
-
-```baselscript
-SECTION init
-    read file=example_person dir=#_directory_files_examples
-    call list=person_list
-END
-```
+Do not place `file name=... record=(...) ...` before the `SCENE`.
 
 Rules:
 
-- `read file=<name> dir=<directory>` reads the declared file.
-- `SECTION init` is the normal place for initialization-time file reading.
-- Reading the file and declaring the LIST source are different operations.
-- Do not generate `draw list=<name>`. A LIST is invoked with `call list=<name>`.
+- `file name=... record=(...) dir=...` defines the structured record mapping.
+- The order of variables in `record=(...)` follows the field order in the file.
+- `read file=...` loads the file after the structure has been declared.
+- The file declaration and `read` are separate operations.
+- If a long statement is split across physical lines, every continued line
+  ends with `\`.
 
-## Complete file-to-LIST pattern
+## Complete file-backed LIST lifecycle
 
-For a task that asks to read `example_person` and show its records in a LIST:
+Canonical pattern:
 
 ```baselscript
-file name=example_person \
-    record=(#first_name,#last_name,#city,#street,#birthday) \
-    dir=#_directory_files_examples
-
 SCENE=1 title="Example Person"
 
 SECTION init
+
+    file name=example_person \
+        record=(#first_name,#last_name,#city,#street,#birthday) \
+        dir=#_directory_files_examples
+
     read file=example_person dir=#_directory_files_examples
+
     call list=person_list
+
 END
 
 LIST person_list
-
     tile=file name=example_person
 
     tile=item row=1 col=1 text=#first_name w=280
@@ -80,25 +68,78 @@ LIST person_list
 
     tile=item row=2 col=1 text=#city w=280
     tile=item row=2 col=2 text=#birthday w=280
-
 END
 
 END SCENE 1
 ```
 
-The file declaration defines the record mapping.
-`read` loads the file data.
-`tile=file` identifies the source used by the LIST.
-`call list=person_list` displays the LIST.
+Responsibility chain:
+
+```text
+SECTION init
+    file ... record=(...) ...
+    -> defines record variables
+
+    read file=...
+    -> loads records
+
+    call list=...
+    -> displays LIST
+
+LIST
+    tile=file ...
+    -> identifies LIST source
+
+    tile=item text=#field
+    -> displays values from the current record
+```
+
+`tile=file` does not replace the structured `file ... record=(...) ...`
+declaration.
+
+## Complete file-backed FORM initialization
+
+If a FORM is filled from a structured file, use the same declaration/read order
+inside `SECTION init` and draw the form only afterwards:
+
+```baselscript
+SCENE=1 title="Person"
+
+SECTION init
+
+    file name=person \
+        record=(#first_name,#last_name,#street,#city,#birthday) \
+        dir=#_directory_files_examples
+
+    read file=person dir=#_directory_files_examples
+
+    draw form=person_form
+
+END
+
+FORM person_form
+    ...
+END
+
+END SCENE 1
+```
+
+## Writing a record
+
+Current documentation and real scripts use `write_record`.
+Field/value order must correspond to the declared record structure.
+
+Use the exact current parameter spelling documented by the machine contract and
+this semantic route. Do not invent a foreign file API.
 
 ## AI generation rules
 
-- For file-backed LIST tasks, combine the `files_data` and `list` routes.
-- If the file definition is part of the requested example, include the documented
-  `file name=... record=(...) dir=...` declaration.
-- Read initialization data inside `SECTION init` when the task requires loading at
-  scene start.
-- After reading, invoke the LIST with `call list=<name>`.
-- Do not confuse `read file=...` with `tile=file ...`.
-- Do not invent file identifiers, directories, field mappings, or parameters that
-  are not provided by the request or documented reference.
+- Put `file ... record=(...) ...` inside the `SCENE`.
+- For normal initialization, put it inside `SECTION init`.
+- Declare the structured file before `read`.
+- Do not use record variables in a standalone example without declaring their
+  record structure.
+- For a file-backed LIST, load both `files_data` and `list` routes.
+- For a FORM that reads structured file data, load both `files_data` and `form`.
+- Do not confuse `file`, `read`, `tile=file`, `call list`, and `draw form`.
+- Do not place a current generated file declaration outside the SCENE.
