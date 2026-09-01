@@ -4,99 +4,265 @@ This repository is the authoritative AI reference for the current BaselScript la
 
 ## Repository path rule
 
-All file paths in this reference are relative to the **Git repository root**.
+All reference paths are relative to the Git repository root.
 
 Correct:
 
 ```text
 reference/manifest.json
 reference/AI_CONTEXT.md
-reference/language/functions.def
 reference/language/actions.def
-reference/language/blocks.def
-reference/language/conditions.def
-reference/language/scene.def
-reference/language/baselscript-language.json
-reference/semantics/10_date_time.md
+reference/semantics/05_ui.md
+reference/patterns/02_ui_lifecycle.md
 ```
 
-Wrong:
-
-```text
-language/functions.def
-language/actions.def
-semantics/10_date_time.md
-```
-
-Do not remove the leading `reference/` directory when constructing GitHub paths or URLs.
+Do not drop the leading `reference/` directory.
 
 ## Source layers
 
-1. `reference/language/*.def` and `reference/language/baselscript-language.json`
-   - machine contract used by the validator/reference exporter
-   - defines known names, aliases, arity, block tokens, condition tokens and runtime requirements
-   - does NOT by itself define every source-level invocation form, return convention, side effect or platform behavior
+BaselScript AI grounding uses four complementary layers.
 
-2. `reference/semantics/*.md`
-   - canonical source-level usage and verified behavioral semantics
-   - this is where invocation syntax, side effects, compositions and platform notes belong
+### 1. Machine contract
 
-3. `reference/evidence/*.md`
-   - confidence and coverage status
-   - unverified, removed and legacy forms must not be generated as current syntax
+```text
+reference/language/*.def
+reference/language/baselscript-language.json
+```
 
+Defines current names, aliases, arity, action requirements, block tokens, condition
+tokens and scene grammar.
 
-## Source authority when files disagree
+It answers primarily: **does this construct exist?**
 
-Use this precedence:
+### 2. Semantics
+
+```text
+reference/semantics/*.md
+```
+
+Defines verified source forms, meaning, side effects, return/result variables,
+platform behavior and domain-specific constraints.
+
+It answers primarily: **what does this construct mean and how is it written?**
+
+### 3. Composition patterns
+
+```text
+reference/patterns/*.md
+```
+
+Defines verified/repeated end-to-end lifecycles assembled from current constructs.
+
+It answers primarily: **how do these constructs fit together into a working script?**
+
+Patterns never override the current machine contract or semantic constraints.
+
+### 4. Evidence
+
+```text
+reference/evidence/*.md
+```
+
+Records coverage, removed/legacy/unverified forms, audits and regression status.
+
+## Source authority
+
+When sources disagree, use this precedence:
 
 ```text
 confirmed current runtime/regression
-> current language/*.def
-> generated language/baselscript-language.json
-> current semantics/*.md
+> current reference/language/*.def
+> generated reference/language/baselscript-language.json
+> current reference/semantics/*.md
+> current reference/patterns/*.md
 > repeated real-script evidence
 > rare/historical evidence
 ```
 
-The `.def` files remain the formal current name/arity/token contract.
-Semantic files may add verified behavior that the machine contract does not encode, but must not silently reintroduce a name that the current machine contract has intentionally removed.
+A pattern may compose current semantics but may not resurrect a name intentionally
+removed from the machine contract.
 
 ## Mandatory loading rule
 
-Before generating BaselScript:
+Before generating, reviewing, explaining, validating or modifying BaselScript code:
 
-1. read `reference/manifest.json`
-2. load every file in `baseline_required`
-3. classify the request into one or more `task_routes`
-4. load every routed semantic file and machine-contract file for those routes
-5. generate only syntax supported by those files
+1. read `reference/manifest.json`;
+2. load every file listed in `baseline_required`;
+3. classify the task into every matching `task_routes` category;
+4. load the union of all files in all matching routes;
+5. use routed composition patterns when the task needs more than an isolated command;
+6. only then generate BaselScript.
 
-If the required source-level form is not documented, do not substitute syntax from C#, JavaScript, Python, SQL dialects or another language.
+Do not stop at the first matching route.
+
+Example:
+
+```text
+file-backed LIST
+-> list + ui + files_data
+
+SQL rows displayed as LIST
+-> database_sql + files_data + list + ui
+
+chart from a file
+-> charts + files_data
+```
+
+## Complete-script rule
+
+When the user requests a complete runnable example, do not return a collection of
+individually valid lines if a routed lifecycle pattern exists.
+
+Include the required orchestration.
+
+For example, a file-backed LIST normally requires:
+
+```text
+file declaration
+-> read
+-> call list
+-> LIST tile=file
+-> LIST tile=item
+-> optional tile=select
+-> target SECTION
+```
+
+A database example normally requires:
+
+```text
+db_use
+-> check #_database_result
+-> application SQL
+```
+
+A graphics example normally requires:
+
+```text
+graphic scene
+-> clear canvas
+-> draw tiles
+-> draw canvas
+```
+
+A chart normally requires:
+
+```text
+CHART_BEGIN
+-> CHART_SET
+-> values source
+-> CHART_DRAW
+```
 
 ## Core lexical rules
 
-- BaselScript variables use `#`.
-- BaselScript function calls use `$` before the function name.
-- Canonical assignment of a function result is therefore of the form:
+- user and system variables use `#`;
+- functions use `$`;
+- actions are statements and do not use `$`;
+- assignment uses `=`;
+- equality comparison uses `==`;
+- multiline logical statements require explicit `\` continuation.
+
+Example:
 
 ```baselscript
-#result=$function_name(...)
+#d=$date()
+message #_current_weekday_name
 ```
 
 Do not generate:
 
 ```text
-function_name(...)
-#result=function_name(...)
+date()
+$message(...)
 ```
 
-unless a routed semantic file explicitly documents that form for a special construct.
+## Physical-line rule
+
+Parentheses, commas and indentation do not imply physical-line continuation.
+
+Keep reasonably short statements on one physical line.
+
+When splitting a long BaselScript statement, end every continued physical line with
+`\`.
+
+```baselscript
+message $concat( \
+    #first_name," ", \
+    #last_name)
+```
+
+## Hard generation rule
+
+Do not invent:
+
+- actions;
+- functions;
+- parameters;
+- blocks;
+- condition operators;
+- closing keywords;
+- CALL target families;
+- UI tiles;
+- graphics tiles;
+- CHART syntax;
+- system variables;
+- platform APIs.
+
+If the current routed reference does not document the required source form, state that
+it is unverified instead of substituting syntax from another language.
 
 ## Canonical names
 
-Aliases listed in `functions.def` are accepted language spellings, but AI-generated code should prefer the canonical name unless a semantic file documents a preferred public spelling.
+Prefer canonical names from the current machine contract. Accepted aliases may be
+preserved when modifying an existing working script, but frequency in old corpus files
+does not by itself make an alias canonical.
+
+## Removed standalone actions
+
+Do not generate these unless a future current contract explicitly reintroduces them:
+
+```text
+db_current
+db_path
+db_exists
+open
+grid
+pdf
+mail
+vibrate
+```
+
+Use current documented alternatives, for example standalone `select` for file
+selection.
+
+## Cross-domain responsibility
+
+A routed semantic or pattern file may explicitly require another route. Follow that
+requirement.
+
+Examples:
+
+- a file-backed LIST requires `files_data`;
+- SQL output shown in a LIST also requires file/UI semantics;
+- file-driven graphics require both graphics and files;
+- encrypted database work requires database and security routes.
 
 ## "Reference loaded"
 
-Do not claim that the BaselScript reference is loaded if only the machine catalog was read. For a task to be reference-grounded, the baseline and matching semantic route must both be read.
+Do not claim the BaselScript reference is loaded if only the machine catalog was read.
+A task is reference-grounded only after baseline files and every matching routed
+semantic/pattern file have been read.
+
+## Current corpus second pass
+
+The composition layer was added after a corpus-wide second pass over the extracted
+catalog of 425 real `.script` files, 27,094 executable/structural lines and 1,512
+distinct syntactic pattern signatures.
+
+See:
+
+```text
+reference/evidence/SECOND_PASS_REPORT.md
+```
+
+for methodology and coverage.
