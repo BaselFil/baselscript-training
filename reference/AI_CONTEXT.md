@@ -118,14 +118,21 @@ Include the required orchestration.
 For example, a file-backed LIST normally requires:
 
 ```text
-file declaration
--> read
--> call list
+SCENE
+-> SECTION init
+   -> file declaration
+   -> read
+   -> call list
 -> LIST tile=file
 -> LIST tile=item
 -> optional tile=select
 -> target SECTION
+-> END SCENE
 ```
+
+The structured file declaration must remain inside the SCENE and must appear before
+the corresponding `read file=...`. For LIST layout, load and apply
+`reference/semantics/21_list.md`.
 
 A database example normally requires:
 
@@ -266,3 +273,57 @@ reference/evidence/SECOND_PASS_REPORT.md
 ```
 
 for methodology and coverage.
+
+
+## Preservation rule for runtime-tested semantic knowledge
+
+Runtime-tested semantic files must be loaded and applied directly. Do not replace
+them with a shorter generic pattern.
+
+In particular:
+
+```text
+reference/semantics/19_form.md
+```
+
+contains verified FORM geometry and layout behavior. For every FORM request, read
+it completely before choosing coordinates.
+
+Required FORM facts include:
+
+```text
+portrait nominal width  ~800
+landscape nominal width ~1280
+
+landscape two-column baseline:
+left  x=60  w=550
+right x=670 w=550
+
+ordinary one-line tile=text:
+do not force a small explicit height
+
+label above input:
+use the verified spacing from 19_form.md
+```
+
+A generic UI example with narrow `w=280` columns must not override these rules.
+
+Likewise:
+
+```text
+reference/semantics/06_files_data.md
+```
+
+defines the current generated placement of structured file declarations. In a
+complete current file-based example, declare the file inside the relevant
+SECTION, normally `SECTION init`, before `read`.
+
+## No-loss update rule
+
+New verified runtime/UI knowledge must be promoted into a routed authoritative
+semantic file before it is considered part of the public AI reference.
+
+Local notes, chat context, temporary artifacts and un-routed files are not part
+of what a new ChatGPT conversation can know.
+
+The manifest must route every authoritative semantic file needed for the task.

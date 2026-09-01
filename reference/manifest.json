@@ -1,6 +1,6 @@
 {
   "schema": "baselscript-reference-manifest-v1",
-  "reference_version": "clean-v2-corpus-patterns-2026-09-01",
+  "reference_version": "clean-v4-list-layout-file-scope-2026-09-01",
   "generated_from_language_contract": true,
   "machine_contract": {
     "directory": "reference/language",
@@ -49,11 +49,16 @@
       "reference/language/baselscript-language.json"
     ],
     "form": [
+      "reference/semantics/02_structure.md",
+      "reference/semantics/03_call_execution.md",
       "reference/semantics/05_ui.md",
+      "reference/semantics/18_platform.md",
       "reference/semantics/19_form.md",
+      "reference/patterns/01_structure_execution.md",
       "reference/patterns/02_ui_lifecycle.md",
       "reference/language/blocks.def",
       "reference/language/actions.def",
+      "reference/language/scene.def",
       "reference/language/baselscript-language.json"
     ],
     "list": [
@@ -61,8 +66,8 @@
       "reference/semantics/03_call_execution.md",
       "reference/semantics/05_ui.md",
       "reference/semantics/21_list.md",
+      "reference/patterns/01_structure_execution.md",
       "reference/patterns/02_ui_lifecycle.md",
-      "reference/patterns/03_files_data_lifecycle.md",
       "reference/language/blocks.def",
       "reference/language/actions.def",
       "reference/language/baselscript-language.json"
@@ -160,7 +165,10 @@
     "semantic_docs_override_guessing": true,
     "route_union_required": true,
     "prefer_complete_patterns_for_complete_scripts": true,
-    "if_semantics_missing": "Say that the current reference does not document the required source-level form; do not infer it from another language."
+    "if_semantics_missing": "Say that the current reference does not document the required source-level form; do not infer it from another language.",
+    "preserve_runtime_tested_semantics": true,
+    "routed_semantic_files_must_be_read_completely": true,
+    "generic_patterns_must_not_override_domain_semantics": true
   },
   "source_authority": [
     "confirmed current runtime/regression",
@@ -188,7 +196,16 @@
   "route_expansion_rules": {
     "file_backed_list": [
       "list",
+      "files_data",
+      "ui"
+    ],
+    "file_backed_form": [
+      "form",
       "files_data"
+    ],
+    "landscape_form": [
+      "form",
+      "platform"
     ],
     "sql_rows_displayed_as_list": [
       "database_sql",
