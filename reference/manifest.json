@@ -1,6 +1,6 @@
 {
   "schema": "baselscript-reference-manifest-v1",
-  "reference_version": "clean-v1-audited-pathfix-ui-2026-08-31",
+  "reference_version": "clean-v1-audited-pathfix-ui-2026-09-01",
   "generated_from_language_contract": true,
   "machine_contract": {
     "directory": "reference/language",
@@ -51,6 +51,8 @@
       "reference/language/baselscript-language.json"
     ],
     "list": [
+      "reference/semantics/02_structure.md",
+      "reference/semantics/03_call_execution.md",
       "reference/semantics/05_ui.md",
       "reference/semantics/21_list.md",
       "reference/language/blocks.def",
