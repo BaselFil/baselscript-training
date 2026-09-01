@@ -2,18 +2,10 @@
 
 Status: CURRENT SEMANTICS + REPEATED CORPUS + RUNTIME/UI TESTS
 
-Static UI dominates the current corpus:
+This pattern file composes UI lifecycles. It does not replace the domain
+semantic files.
 
-```text
-FORM    245 declarations / 159 files
-MENU    187 declarations / 155 files
-LIST    141 declarations / 121 files
-DIALOG   91 declarations / 66 files
-tile   4852 occurrences / 340 files
-```
-
-For ordinary application generation, prefer the static lifecycle unless the user
-explicitly needs dynamic UI.
+For FORM layout and geometry, `reference/semantics/19_form.md` is authoritative.
 
 ## Activation matrix
 
@@ -28,151 +20,184 @@ Do not interchange these activation forms.
 
 ## FORM lifecycle
 
+For a complete FORM script:
+
+```text
+SCENE
+-> SECTION init
+-> optional orientation/file/data setup
+-> draw form=<name>
+-> FORM <name>
+-> target SECTION/ACTION blocks
+-> END SCENE
+```
+
+If structured file data is used, the file declaration belongs inside the
+initializing SECTION before `read`.
+
+Example:
+
 ```baselscript
 SCENE=1 title="Person"
 
 SECTION init
+
+    file name=person \
+        record=(#first_name,#last_name,#street,#city,#birthday) \
+        dir=#_directory_files_examples
+
+    read file=person dir=#_directory_files_examples
+
     draw form=person_form
+
 END
 
 FORM person_form
-    tile=text x=50 y=60 w=700 text="Name"
-    tile=input name=#name x=50 y=115 w=700 h=65
-    tile=button x=450 y=220 w=300 h=70 text="Save" sec=save
+    ...
 END
 
-SECTION save
-    message #name
-END
-
-END SCENE
+END SCENE 1
 ```
 
-For one-line `tile=text` labels, omit an arbitrary explicit height. Current runtime/UI
-testing showed that forcing a small height can disturb vertical spacing. Use explicit
-height for multiline text or an intentionally fixed text area.
+## Landscape FORM rule
 
-## MENU lifecycle
+A landscape FORM must use the nominal BaselScript landscape geometry, not the
+pixel width of a resized desktop window.
+
+Canonical nominal width:
+
+```text
+1280
+```
+
+For an ordinary two-column landscape form, prefer the tested baseline from
+`19_form.md`:
+
+```text
+left:  x=60  w=550
+right: x=670 w=550
+```
+
+Field labels above inputs:
 
 ```baselscript
-SCENE=1 title="Menu"
+tile=text x=60 y=80 w=550 text="First name"
+tile=input name=#first_name x=60 y=135 w=550 h=65
 
+tile=text x=670 y=80 w=550 text="Last name"
+tile=input name=#last_name x=670 y=135 w=550 h=65
+```
+
+Do not compress a requested landscape two-column form to narrow columns such as
+`w=280` merely because the current desktop window looks narrow.
+
+Do not put the label beside the input when the requested layout is "field name
+above input".
+
+## Forced landscape lifecycle
+
+When the user explicitly requests landscape-only behavior and the current script
+name is known:
+
+```baselscript
 SECTION init
-    call menu=mainmenu
-END
+    if #_orientation == portrait
+        set orient=landscape
+        call scr=<current_script>
+    endif
 
-MENU mainmenu
-    tile=item text="New" sec=start_new
-    tile=item text="Back" script=empty
+    ...
+    draw form=<landscape_form>
 END
-
-SECTION start_new
-    message "New"
-END
-
-END SCENE
 ```
 
-MENU items can route to the target type documented by current UI semantics. Do not
-invent a generic event-handler API.
+For an adaptive UI, do not force orientation. Choose the relevant portrait or
+landscape form from the current orientation.
 
-## DIALOG lifecycle
+## FORM semantic precedence
 
-```baselscript
-SCENE=1 title="Login"
+When generating a FORM:
 
-SECTION init
-    call dialog=login
-END
+1. load `19_form.md`;
+2. apply its verified geometry and label/input rules;
+3. use this pattern only to compose the lifecycle;
+4. never let a generic corpus example override the verified `19_form.md`
+   layout rules.
 
-DIALOG login
-    tile=title text="Login"
+## LIST lifecycle
 
-    tile=text1 text="Username"
-    tile=input1 name=#user hint="Enter username"
-
-    tile=text2 text="Password"
-    tile=input2 name=#password hint="Enter password" control=password
-
-    tile=button1 text="OK" section=login_ok
-    tile=button2 text="Cancel" section=back
-END
-
-SECTION login_ok
-    message #user
-END
-
-SECTION back
-    call script=empty
-END
-
-END SCENE
-```
-
-## File-backed LIST lifecycle
-
-A LIST that displays structured file records is a cross-domain pattern. It requires
-the `files_data` route as well as the LIST/UI route.
+For a file-backed LIST, also load `06_files_data.md`.
 
 ```baselscript
-file name=example_person \
-    record=(#first_name,#last_name,#city,#street,#birthday) \
-    dir=#_directory_files_examples
-
 SCENE=1 title="People"
 
 SECTION init
+
+    file name=example_person \
+        record=(#first_name,#last_name,#city,#street,#birthday) \
+        dir=#_directory_files_examples
+
     read file=example_person dir=#_directory_files_examples
+
     call list=person_list
+
 END
 
 LIST person_list
     tile=file name=example_person
 
-    tile=item row=1 col=1 text=#first_name w=280 st=bold
-    tile=item row=1 col=2 text=#last_name w=280 st=bold
+    tile=item row=1 col=1 text=#first_name w=280
+    tile=item row=1 col=2 text=#last_name w=280
 
-    tile=item row=2 col=1 text=#city w=280
-    tile=item row=2 col=2 text=#birthday w=280
+    tile=item row=2 col=1 text=#street w=600
 
-    tile=item row=3 col=1 text=#street w=600
+    tile=item row=3 col=1 text=#city w=300
+    tile=item row=3 col=2 text=#birthday w=300
 
     tile=select sec=selected_person
 END
 
-SECTION selected_person
-    message $concat(#first_name," ",#last_name)
+END SCENE 1
+```
+
+LIST rows may use different numbers of columns. Use `row` / `col` when fields
+should remain visually independent and require separate width/style/alignment control.
+Only fields intended to appear next to each other should share the same `row`.
+
+If several source fields should become one textual value instead, concatenate them
+in an additional SECTION into a working field and display that working field as one
+LIST item. Do not invent inline concatenation syntax inside `tile=item`.
+
+Exact LIST layout semantics come from `reference/semantics/21_list.md`.
+
+## MENU lifecycle
+
+```baselscript
+SECTION init
+    call menu=mainmenu
 END
 
-END SCENE
+MENU mainmenu
+    ...
+END
 ```
 
-Within one source record:
+## DIALOG lifecycle
 
-```text
-row -> vertical row
-col -> horizontal field within the row
-w   -> explicit item width
+```baselscript
+SECTION init
+    call dialog=login
+END
+
+DIALOG login
+    ...
+END
 ```
 
-The same layout is repeated for every source record. If columns must align across rows,
-use matching explicit widths.
+Exact DIALOG field semantics come from `21_dialog.md`.
 
-## Orientation/layout responsibility
+## Generation rule
 
-Use SCENE for a logical page or application step. Multiple FORMs in one SCENE can
-represent alternative visual layouts, for example portrait and landscape. Do not
-create extra scenes solely because the same logical page needs another orientation.
-
-Detailed FORM layout rules remain in `19_form.md`.
-
-## Dynamic UI
-
-Dynamic `create`, `clear` and `set` forms are present in the corpus, but they are much
-less common than static UI and have more validator/runtime edge cases.
-
-Generation rule:
-
-- prefer static FORM/LIST/MENU/DIALOG for ordinary examples;
-- use dynamic UI only when the task requires runtime construction;
-- load the exact current UI semantics before generating dynamic syntax.
+For complete scripts, generate the complete lifecycle. Do not return only a
+FORM/LIST declaration when initialization, data preparation or activation is
+required.
