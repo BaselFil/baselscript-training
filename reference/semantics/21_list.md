@@ -20,17 +20,16 @@ Canonical verified example:
 ```baselscript
 LIST person_list
 
-    tile=file name=persons directory=#_directory_temp
+    tile=file name=example_person
 
-    tile=item row=1 col=1 text=#first_name w=280 st=bold c=#000000
-    tile=item row=1 col=2 text=#last_name w=280 st=bold c=#000000
+    tile=item row=1 col=1 text=#first_name w=280 st=bold
+    tile=item row=1 col=2 text=#last_name w=280 st=bold
 
-    tile=item row=2 col=1 text=#city w=280 c=#555555
-    tile=item row=2 col=2 text=#birthday w=280 c=#555555
+    tile=item row=2 col=1 text=#city w=280
+    tile=item row=2 col=2 text=#birthday w=280
 
-    tile=item row=3 col=1 text=#street w=600 c=#777777
+    tile=item row=3 col=1 text=#street w=600
 
-    tile=button id=back_button text="<" sec=back w=160
     tile=select sec=selected_person
 
 END
@@ -77,16 +76,18 @@ draw list=<name>
 `draw form=<name>` is used for FORM.
 A LIST is invoked with `call list=<name>`.
 
-Canonical pattern:
+For a file-backed LIST that should be displayed when the scene initializes:
 
 ```baselscript
-SCENE=1 title="Example Person"
-
 SECTION init
     read file=example_person dir=#_directory_files_examples
     call list=person_list
 END
+```
 
+The LIST itself defines the visual structure:
+
+```baselscript
 LIST person_list
 
     tile=file name=example_person
@@ -98,8 +99,6 @@ LIST person_list
     tile=item row=2 col=2 text=#birthday w=280
 
 END
-
-END SCENE 1
 ```
 
 Generation rule:
@@ -110,6 +109,23 @@ LIST   -> call list=<name>
 MENU   -> call menu=<name>
 DIALOG -> call dialog=<name>
 ```
+
+## File-backed LIST responsibilities
+
+For a list built from a structured file:
+
+```text
+file declaration -> defines record variables and directory
+read             -> loads file data
+call list        -> opens/displays the LIST
+tile=file        -> identifies the LIST data source
+tile=item        -> defines the visual fields for each record
+```
+
+Do not merge these responsibilities into invented syntax.
+
+When the requested LIST is based on a file, the AI must also load the
+`files_data` task route.
 
 ## One-line text versus real columns
 
@@ -146,4 +162,5 @@ tile=select sec=selected_person
 - Prefer `row` / `col` over concatenated text when true columns are requested.
 - Display a static LIST with `call list=<name>`.
 - Do not generate `draw list=<name>`.
+- For a file-backed LIST, load and apply the `files_data` route as well.
 - Do not invent alternative LIST column APIs.

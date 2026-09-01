@@ -1,120 +1,104 @@
-# 06 - Files / data
+# File and data semantics
 
-Status: PARTIALLY VERIFIED
+Status: VERIFIED BY CURRENT PROJECT EVIDENCE / REAL SCRIPT PATTERNS
 
-Primary sources:
+This file documents source-level file declaration and file reading patterns used by
+current BaselScript examples.
 
-- `language/actions.def`
-- `language/functions.def`
-- repeated real script patterns
+## File declaration
 
-Current statement-level families include:
+A structured file can declare the variables that represent one record.
 
-```text
-file
-read
-write_record
-copy
-delete
-rename
-search
-select
-select_record
-update_file
-update_records
-update_all_records
-directory_l*
-dir_l*
-search_dir*
-```
-
-Some file/data constructs are parser families rather than fully specified action rows. Use verified examples.
-
-## File declaration / record mapping
-
-A common real pattern is:
+Canonical pattern:
 
 ```baselscript
-file id=PERSONS_TEMP.csv dir=#_directory_files \
-    record=(#id,#first_name,#last_name)
+file name=example_person \
+    record=(#first_name,#last_name,#city,#street,#birthday) \
+    dir=#_directory_files_examples
 ```
 
-The `record=(...)` mapping defines fields loaded from a file row.
+Rules:
 
-## READ
+- `name=` identifies the BaselScript file definition.
+- `record=(...)` maps the fields of one file record to BaselScript variables.
+- `dir=` identifies the directory that contains the file.
+- If a long statement is split across physical lines, every continued line must end
+  with `\`.
+- Do not replace `name=` with an undocumented alternative when generating new code.
 
-Common form:
+## Read during scene initialization
+
+When the task is to load file data when a scene starts, place the read operation in
+`SECTION init`.
+
+Canonical pattern:
 
 ```baselscript
-read file=<file> dir=<directory>
+SECTION init
+    read file=example_person dir=#_directory_files_examples
+END
 ```
 
-Examples may add sorting or other parameters. Preserve a verified pattern rather than inventing a parameter.
-
-## WRITE_RECORD
-
-`write_record` is CURRENT. Use a real pattern from the target application/file model before generating full parameters.
-
-## Directory listing
-
-Confirmed project pattern:
+For a file-backed LIST that must be shown immediately after loading, use:
 
 ```baselscript
-directory_list dir=APPDIR/script target_file=dir_list mode=only_files
+SECTION init
+    read file=example_person dir=#_directory_files_examples
+    call list=person_list
+END
 ```
 
-A typical pipeline is:
+Rules:
+
+- `read file=<name> dir=<directory>` reads the declared file.
+- `SECTION init` is the normal place for initialization-time file reading.
+- Reading the file and declaring the LIST source are different operations.
+- Do not generate `draw list=<name>`. A LIST is invoked with `call list=<name>`.
+
+## Complete file-to-LIST pattern
+
+For a task that asks to read `example_person` and show its records in a LIST:
 
 ```baselscript
-directory_list dir=APPDIR/script target_file=dir_list
-read file=dir_list
-call list=<name>
+file name=example_person \
+    record=(#first_name,#last_name,#city,#street,#birthday) \
+    dir=#_directory_files_examples
+
+SCENE=1 title="Example Person"
+
+SECTION init
+    read file=example_person dir=#_directory_files_examples
+    call list=person_list
+END
+
+LIST person_list
+
+    tile=file name=example_person
+
+    tile=item row=1 col=1 text=#first_name w=280
+    tile=item row=1 col=2 text=#last_name w=280
+
+    tile=item row=2 col=1 text=#city w=280
+    tile=item row=2 col=2 text=#birthday w=280
+
+END
+
+END SCENE 1
 ```
 
-## File functions
+The file declaration defines the record mapping.
+`read` loads the file data.
+`tile=file` identifies the source used by the LIST.
+`call list=person_list` displays the LIST.
 
-Current machine-defined families include:
+## AI generation rules
 
-```text
-file.exist_file
-file.counter
-file.fields_counter
-file.search_in_file
-file.max_field
-file.min_field
-file.average_field
-file.sum
-file.creation_time
-file.last_access_time
-file.last_write_time
-directory.directory_files
-exist_subdirectory
-```
-
-Use `$` function syntax and respect arity.
-
-## Selection / picker
-
-Standalone `select` is CURRENT:
-
-```baselscript
-select
-```
-
-After a successful current picker workflow, BaselScript exposes:
-
-```text
-#_SELECTED_FILE
-#_SELECTED_DIRECTORY
-```
-
-Do not generate removed standalone `open`.
-
-The exact Windows/Android picker and temporary-copy behavior belongs to `18_platform.md`.
-
-## Generation rules
-
-- Follow the application's established `file id=... dir=... record=(...)` model.
-- Preserve directory variables and APPDIR/MYDATA conventions when maintaining code.
-- Do not infer path semantics from Windows or Android directly.
-- Do not generate corpus-only directory functions absent from `functions.def`.
+- For file-backed LIST tasks, combine the `files_data` and `list` routes.
+- If the file definition is part of the requested example, include the documented
+  `file name=... record=(...) dir=...` declaration.
+- Read initialization data inside `SECTION init` when the task requires loading at
+  scene start.
+- After reading, invoke the LIST with `call list=<name>`.
+- Do not confuse `read file=...` with `tile=file ...`.
+- Do not invent file identifiers, directories, field mappings, or parameters that
+  are not provided by the request or documented reference.
