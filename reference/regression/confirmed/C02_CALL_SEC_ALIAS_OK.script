@@ -1,0 +1,15 @@
+// TEST: C02
+// CHECK: legacy/common alias call sec=<name>
+// EXPECT: OK, message "C02 OK"
+
+SCENE=1 title="C02 call sec"
+
+SECTION init
+    call sec=target
+END
+
+SECTION target
+    message "C02 OK"
+END
+
+END SCENE

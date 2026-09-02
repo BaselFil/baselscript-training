@@ -1,0 +1,224 @@
+{
+  "schema": "baselscript-reference-manifest-v2",
+  "reference_version": "clean-v1-2026-09-02",
+  "path_base": "repository_root",
+  "entrypoints": [
+    "reference/manifest.json",
+    "reference/AI_CONTEXT.md"
+  ],
+  "machine_contract": {
+    "directory": "reference/language",
+    "files": [
+      "reference/language/functions.def",
+      "reference/language/actions.def",
+      "reference/language/blocks.def",
+      "reference/language/conditions.def",
+      "reference/language/scene.def",
+      "reference/language/baselscript-language.json"
+    ],
+    "full_json_policy": "Do not load baselscript-language.json by default. Load it only through machine_full/ui_defaults or explicit fallback validation."
+  },
+  "baseline_required": [
+    "reference/AI_CONTEXT.md",
+    "reference/knowledge/generation_rules.md",
+    "reference/semantics/00_INDEX.md",
+    "reference/semantics/01_core_language.md"
+  ],
+  "task_routes": {
+    "structure": [
+      "reference/semantics/02_structure.md",
+      "reference/patterns/01_structure_execution.md",
+      "reference/language/blocks.def",
+      "reference/language/scene.def"
+    ],
+    "call_execution": [
+      "reference/semantics/03_call_execution.md",
+      "reference/patterns/01_structure_execution.md",
+      "reference/language/actions.def",
+      "reference/language/blocks.def",
+      "reference/language/scene.def"
+    ],
+    "control_flow": [
+      "reference/semantics/04_control_flow.md",
+      "reference/patterns/08_control_flow_lifecycle.md",
+      "reference/language/conditions.def",
+      "reference/language/actions.def"
+    ],
+    "ui": [
+      "reference/semantics/05_ui.md",
+      "reference/patterns/02_ui_lifecycle.md",
+      "reference/language/blocks.def",
+      "reference/language/actions.def"
+    ],
+    "form": [
+      "reference/semantics/05_ui.md",
+      "reference/semantics/19_form.md",
+      "reference/patterns/02_ui_lifecycle.md",
+      "reference/language/blocks.def",
+      "reference/language/actions.def",
+      "reference/language/scene.def"
+    ],
+    "list": [
+      "reference/semantics/05_ui.md",
+      "reference/semantics/21_list.md",
+      "reference/patterns/02_ui_lifecycle.md",
+      "reference/language/blocks.def",
+      "reference/language/actions.def"
+    ],
+    "dialog": [
+      "reference/semantics/05_ui.md",
+      "reference/semantics/20_dialog.md",
+      "reference/patterns/02_ui_lifecycle.md",
+      "reference/language/blocks.def",
+      "reference/language/actions.def"
+    ],
+    "files_data": [
+      "reference/semantics/06_files_data.md",
+      "reference/patterns/03_files_data_lifecycle.md",
+      "reference/language/actions.def",
+      "reference/language/functions.def"
+    ],
+    "arrays_hash": [
+      "reference/semantics/07_arrays_hash.md",
+      "reference/patterns/05_arrays_functions_lifecycle.md",
+      "reference/language/functions.def",
+      "reference/language/actions.def"
+    ],
+    "functions_strings": [
+      "reference/semantics/08_functions_strings.md",
+      "reference/patterns/05_arrays_functions_lifecycle.md",
+      "reference/language/functions.def"
+    ],
+    "math": [
+      "reference/semantics/09_math.md",
+      "reference/language/functions.def"
+    ],
+    "date_time": [
+      "reference/semantics/10_date_time.md",
+      "reference/language/functions.def"
+    ],
+    "database_sql": [
+      "reference/semantics/11_database_sql.md",
+      "reference/patterns/04_database_sql_lifecycle.md",
+      "reference/language/actions.def",
+      "reference/language/functions.def"
+    ],
+    "security_crypto": [
+      "reference/semantics/12_security_crypto.md",
+      "reference/patterns/07_security_crypto_lifecycle.md",
+      "reference/language/actions.def"
+    ],
+    "graphics": [
+      "reference/semantics/13_graphics.md",
+      "reference/patterns/06_graphics_charts_lifecycle.md",
+      "reference/language/actions.def",
+      "reference/language/functions.def"
+    ],
+    "charts": [
+      "reference/semantics/14_charts.md",
+      "reference/patterns/06_graphics_charts_lifecycle.md",
+      "reference/language/actions.def"
+    ],
+    "network_media_device": [
+      "reference/semantics/15_network_media_device.md",
+      "reference/patterns/09_network_device_lifecycle.md",
+      "reference/language/actions.def",
+      "reference/language/functions.def"
+    ],
+    "script_meta": [
+      "reference/semantics/16_script_meta.md",
+      "reference/patterns/10_script_meta_lifecycle.md",
+      "reference/language/actions.def"
+    ],
+    "testing": [
+      "reference/semantics/17_testing.md",
+      "reference/patterns/08_control_flow_lifecycle.md",
+      "reference/language/actions.def",
+      "reference/language/conditions.def"
+    ],
+    "platform": [
+      "reference/semantics/18_platform.md",
+      "reference/language/actions.def"
+    ],
+    "ui_defaults": [
+      "reference/language/baselscript-language.json"
+    ],
+    "machine_full": [
+      "reference/language/functions.def",
+      "reference/language/actions.def",
+      "reference/language/blocks.def",
+      "reference/language/conditions.def",
+      "reference/language/scene.def",
+      "reference/language/baselscript-language.json"
+    ]
+  },
+  "route_expansion_rules": {
+    "complete_script": [
+      "structure",
+      "call_execution"
+    ],
+    "file_backed_list": [
+      "files_data",
+      "list"
+    ],
+    "file_backed_form": [
+      "files_data",
+      "form"
+    ],
+    "adaptive_form": [
+      "form",
+      "platform"
+    ],
+    "adaptive_list": [
+      "list",
+      "platform"
+    ],
+    "file_backed_adaptive_form_and_list": [
+      "files_data",
+      "form",
+      "list",
+      "platform",
+      "structure",
+      "call_execution"
+    ],
+    "sql_rows_displayed_as_list": [
+      "database_sql",
+      "files_data",
+      "list"
+    ],
+    "chart_from_file": [
+      "charts",
+      "files_data"
+    ],
+    "graphics_from_file": [
+      "graphics",
+      "files_data"
+    ],
+    "graphics_from_array": [
+      "graphics",
+      "arrays_hash"
+    ],
+    "encrypted_application_database": [
+      "database_sql",
+      "security_crypto"
+    ]
+  },
+  "evidence_policy": {
+    "load_by_default": false,
+    "directory": "reference/evidence",
+    "rule": "Load evidence/regression only to resolve uncertainty, verify a disputed form, or perform an audit."
+  },
+  "generation_policy_file": "reference/knowledge/generation_rules.md",
+  "source_authority": [
+    "confirmed current runtime/regression",
+    "current routed machine contract (.def / explicit JSON route)",
+    "current routed semantics",
+    "current routed composition patterns",
+    "repeated real-script evidence",
+    "rare/historical evidence"
+  ],
+  "bootstrap_urls": [
+    "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/manifest.json",
+    "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/AI_CONTEXT.md"
+  ]
+}

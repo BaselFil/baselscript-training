@@ -1,0 +1,10 @@
+// BaselScript SCENE definition
+//
+// Format:
+// type;start_keyword;value_separator;end_prefix;end_contains;implicit_next_start;implicit_eof;name_required
+//
+// This file describes the special legacy SCENE grammar.
+// It intentionally does not use blocks.def because SCENE has
+// implicit boundaries and a different END grammar.
+
+SCENE;scene;=;end;scene;true;true;true

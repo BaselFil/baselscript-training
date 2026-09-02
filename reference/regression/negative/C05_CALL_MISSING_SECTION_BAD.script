@@ -1,0 +1,11 @@
+// TEST: C05
+// CHECK: static reference to a SECTION/ACTION that does not exist
+// EXPECT: VALIDATOR ERROR for missing SECTION/ACTION
+
+SCENE=1 title="C05 missing section"
+
+SECTION init
+    call section=missing_target
+END
+
+END SCENE

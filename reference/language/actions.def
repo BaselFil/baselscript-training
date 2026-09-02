@@ -1,0 +1,156 @@
+// BaselScript action definitions
+//
+// Format:
+// name;match;parameter_rule;runtime_requirement;syntax
+//
+// match:
+//   Exact   = the action name must match completely
+//   Prefix  = runtime-compatible StartsWith(...) family
+//
+// parameter_rule:
+//   None            = no migrated static parameter rule
+//   CallTarget      = validate CALL <type>=<name>
+//   NonEmpty        = action requires non-empty content
+//   CryptoValueKey  = action requires value= and key=
+//
+// runtime_requirement:
+//   None
+//   ApplicationDatabase
+//   SystemDatabase
+//
+// syntax:
+//   descriptive action syntax for validator hints / docs / AI
+//   '-' means not documented yet
+//
+// STEP19 note:
+// syntax is metadata. It is not a new blocking grammar.
+//
+// Action names are matched case-insensitively by ActionValidator.
+// Prefix order is significant when prefixes overlap.
+
+array;Exact;None;None;-
+add;Exact;None;None;-
+change;Exact;None;None;-
+clear;Exact;None;None;-
+close;Exact;None;None;-
+const;Exact;None;None;-
+copy;Exact;None;None;-
+copy_array;Exact;None;None;-
+create;Exact;None;None;-
+create_service;Exact;None;None;-
+db_backup;Exact;None;None;-
+db_restore;Exact;None;None;-
+delay;Exact;None;None;-
+delete;Exact;None;None;-
+download;Exact;None;None;-
+draw;Exact;None;None;-
+driver_list;Exact;None;None;-
+echo;Exact;None;None;-
+exit;Exact;None;None;-
+get;Exact;None;None;-
+insert_after;Exact;None;None;-
+insert_before;Exact;None;None;-
+insert_line_after;Exact;None;None;-
+insert_line_before;Exact;None;None;-
+join;Exact;None;None;-
+log;Exact;None;None;-
+merge;Exact;None;None;-
+merge_all_scripts;Exact;None;None;-
+message;Exact;None;None;-
+message_long;Exact;None;None;-
+message_short;Exact;None;None;-
+music;Exact;None;None;-
+parsing;Exact;None;None;-
+preformat;Exact;None;None;-
+print;Exact;None;None;-
+read;Exact;None;None;-
+redraw;Exact;None;None;-
+reduce_gups;Exact;None;None;-
+reload;Exact;None;None;-
+remove;Exact;None;None;-
+rename;Exact;None;None;-
+replace;Exact;None;None;-
+restore;Exact;None;None;-
+rewrite;Exact;None;None;-
+rewrite_all_scripts;Exact;None;None;-
+run;Exact;None;None;-
+save;Exact;None;None;-
+search;Exact;None;None;-
+select;Exact;None;None;-
+select_record;Exact;None;None;-
+set;Exact;None;None;-
+sound;Exact;None;None;-
+split;Exact;None;None;-
+start;Exact;None;None;-
+stop;Exact;None;None;-
+trace;Exact;None;None;-
+trace_as_is;Exact;None;None;-
+trace_asis;Exact;None;None;-
+trace_full;Exact;None;None;-
+assert;Exact;NonEmpty;None;<condition> [message=<text>]
+test_run;Exact;NonEmpty;None;dir=<path> [manifest=<file>] [mode=<all|runtime|validator>] [verbose=<0|1>]
+update_all_records;Exact;None;None;-
+update_file;Exact;None;None;-
+update_records;Exact;None;None;-
+upload;Exact;None;None;-
+write_record;Exact;None;None;-
+return;Exact;None;None;-
+break;Exact;None;None;-
+continue;Exact;None;None;-
+foreach;Exact;NonEmpty;None;<variable> in <array[]> sec=<section>
+while;Exact;NonEmpty;None;<condition> sec=<section>
+for;Exact;None;None;-
+call;Exact;CallTarget;None;<type>=<name>
+db_use;Exact;NonEmpty;None;<db>
+CRYPTO_ENCRYPT;Exact;CryptoValueKey;None;value=<v> key=<k> [OUTPUT(<x>)]
+CRYPTO_DECRYPT;Exact;CryptoValueKey;None;value=<v> key=<k> [OUTPUT(<x>)]
+CRYPTO_FILTER_CSV;Exact;None;None;-
+CRYPTO_REKEY_DATABASE;Exact;None;None;-
+CLIPBOARD_SET;Exact;None;None;-
+fil;Prefix;None;None;-
+timer;Prefix;None;None;-
+thumb;Prefix;None;None;-
+create_thumb;Prefix;None;None;-
+notif;Prefix;None;None;-
+delete_rec;Prefix;None;None;-
+update_current;Prefix;None;None;-
+update_record;Prefix;None;None;-
+directory_l;Prefix;None;None;-
+dir_l;Prefix;None;None;-
+search_dir;Prefix;None;None;-
+SQL_SECURITY_ADD_PROTECTED_SCRIPT;Prefix;None;SystemDatabase;master=<s> script=<s> OUTPUT(<x>)
+SQL_SECURITY_SET_PROTECTED_SCRIPTS;Prefix;None;SystemDatabase;-
+SQL_SECURITY_INIT_PROTECTED_SCRIPTS;Prefix;None;SystemDatabase;OUTPUT(<x>)
+SQL_SECURITY_IS_UNLOCKED;Prefix;None;SystemDatabase;-
+SQL_SECURITY_NEEDS_ACCESS_KEY;Prefix;None;SystemDatabase;-
+SQL_SECURITY_ACCESS_ENABLED;Prefix;None;SystemDatabase;-
+SQL_SECURITY_VERIFY_ACCESS_KEY;Prefix;None;SystemDatabase;-
+SQL_SECURITY_SET_ACCESS_KEY;Prefix;None;SystemDatabase;-
+SQL_SECURITY_CHANGE_ACCESS_KEY;Prefix;None;SystemDatabase;-
+SQL_SECURITY_DISABLE_ACCESS_KEY;Prefix;None;SystemDatabase;-
+SQL_DROP;Prefix;None;ApplicationDatabase;SQL_DROP_TABLE table(<t>)
+SQL_CREATE_TABLE;Exact;None;ApplicationDatabase;SQL_CREATE_TABLE table(<t>) fields(<f:type,...>)
+SQL_ENSURE;Prefix;None;ApplicationDatabase;SQL_ENSURE_COLUMN table(<t>) field(<f:type>)
+SQL_LIST_COLUMNS;Prefix;None;ApplicationDatabase;SQL_LIST_COLUMNS table(<t>) OUTPUT(<x>)
+SQL_INSERT;Prefix;None;ApplicationDatabase;SQL_INSERT INTO <t>(<f>) VALUES(<v>)
+SQL_UPDATE;Prefix;None;ApplicationDatabase;SQL_UPDATE table(<t>) FIELDS(<a>) [WHERE(...)]
+SQL_DELETE;Prefix;None;ApplicationDatabase;SQL_DELETE FROM <t> [WHERE(...)]
+SQL_SELECT_SUM;Prefix;None;ApplicationDatabase;SQL_SELECT_SUM <f> FROM <t> [WHERE(...)] OUTPUT(<x>)
+SQL_SELECT_COUNT;Prefix;None;ApplicationDatabase;SQL_SELECT_COUNT TABLE(<t>) [WHERE(...)] OUTPUT(<x>)
+SQL_SELECT_AVG;Prefix;None;ApplicationDatabase;SQL_SELECT_AVG <f> FROM <t> [WHERE(...)] OUTPUT(<x>)
+SQL_SELECT;Prefix;None;ApplicationDatabase;SQL_SELECT <f> FROM <t> [WHERE(...)] [OUTPUT(<x>)]
+SQL_EXIST;Prefix;None;ApplicationDatabase;SQL_EXIST <t> OUTPUT(<x>)
+CHART_BEGIN;Prefix;None;None;-
+CHART_VALUES_FROM_FILE;Prefix;None;None;-
+CHART_VALUES_FROM_ARRAY;Prefix;None;None;-
+CHART_VALUES;Prefix;None;None;-
+CHART_FROM_FILE;Prefix;None;None;-
+CHART_BIND;Prefix;None;None;-
+CHART_ARRAY_VALUES;Prefix;None;None;-
+CHART_ARRAY_LABELS;Prefix;None;None;-
+CHART_LABELS_FROM_ARRAY;Prefix;None;None;-
+CHART_ARRAY_COLORS;Prefix;None;None;-
+CHART_COLORS_FROM_ARRAY;Prefix;None;None;-
+CHART_SET;Prefix;None;None;-
+CHART_LINE;Prefix;None;None;-
+CHART_DRAW;Prefix;None;None;-

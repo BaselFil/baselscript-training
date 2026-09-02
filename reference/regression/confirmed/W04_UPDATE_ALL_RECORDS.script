@@ -1,0 +1,56 @@
+// TEST CANDIDATE: W04
+// CHECK: update_all_records uses the same loaded-record callback cycle as update_records
+// EXPECT: W04 OK=1 RECORDS=2 AGE11=1 AGE21=1
+
+SCENE=1
+
+SECTION init
+    file id=REG_W04 record=(#name,#age) dir=#_directory_files
+
+    if $exist_file(#_directory_files,REG_W04) == 1
+        delete file=REG_W04 dir=#_directory_files
+    endif
+
+    #name="A"
+    #age=10
+    write_record file=REG_W04 dir=#_directory_files
+
+    #name="B"
+    #age=20
+    write_record file=REG_W04 dir=#_directory_files
+
+    read file=REG_W04 dir=#_directory_files
+    update_all_records file=REG_W04 dir=#_directory_files sec=raise_age
+
+    read file=REG_W04 dir=#_directory_files
+
+    #ok=1
+    #age11=0
+    #age21=0
+
+    if #_records != 2
+        #ok=0
+    endif
+
+    if #name_array[0]=="A" && #age_array[0]==11
+        #age11=1
+    endif
+
+    if #name_array[1]=="B" && #age_array[1]==21
+        #age21=1
+    endif
+
+    if #age11 != 1 || #age21 != 1
+        #ok=0
+    endif
+
+    trace $concate("W04 OK=",#ok," RECORDS=",#_records," AGE11=",#age11," AGE21=",#age21)
+
+    delete file=REG_W04 dir=#_directory_files
+END
+
+SECTION raise_age
+    #age=#age+1
+END
+
+END SCENE
