@@ -1,0 +1,9 @@
+// MANUAL TEST: M01 - Windows file picker
+// EXPECT: native .script picker opens; selection populates #_SELECTED_FILE and #_SELECTED_DIRECTORY
+
+SCENE=1
+SECTION init
+    open
+    trace $concate("FILE=",#_SELECTED_FILE," DIR=",#_SELECTED_DIRECTORY)
+END
+END SCENE
