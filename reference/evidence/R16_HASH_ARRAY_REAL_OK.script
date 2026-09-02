@@ -1,0 +1,36 @@
+// TEST: R16
+// CHECK: real HASH ARRAY clear/set/get_value flow from 25_2_simple_hash_array.script; body unchanged
+// EXPECT: OK; press "Search capital for Italy" and result must show Rome
+
+SCENE=1 title="hash array"
+SECTION init
+  clear hash_array=1
+  set hash_array=1 key=Bulgaria value=Sofia
+  set hash_array=1 key=Germany value=Berlin
+  set hash_array=1 key=Italy value=Rome
+  draw form =1
+END
+-----------------------------------------------------
+FORM 1
+  tile=text  text= "Bulgaria  -  Sofia"     x=50 y=100
+  tile=text  text= "Germany   -  Berlin" x=50 y=150
+  tile=text  text= "Italy     -  Rome"       x=50 y=200
+  tile=button  text= "Search capital for Italy"    x=50 y=300 w=500 h=100  bg=trans c=900 sec=start
+END 
+-----------------------------------------------------
+SECTION start
+   #capital= $hash.get_value(1,Italy)
+   #result= $concate("Capital of Italy is ",#capital)
+
+   // add new line with result to form
+   create  tile=text  text= #result   x=50 y=500 form=1
+   draw form=1
+END
+-----------------------------------------------------
+SECTION back
+    call scr=25_work_with_array
+END
+
+END SCENE 1
+
+

@@ -1,0 +1,22 @@
+// TEST: L06
+// CHECK: regression for create tile=file inside runtime LIST
+// EXPECT: OK, directory list is displayed; this protects the CreateListTile tile=file fix
+
+SCENE=1 title="L06 dynamic file list"
+
+SECTION init
+    file id=dir_list record=(#file_name,#file_extention,#file_length,#file_date) dir=APPDIR/MYDATA/temp
+    directory_list dir=APPDIR/script target_file=dir_list
+    read file=dir_list sort="order by (#file_name)"
+
+    clear list_view=ccc
+
+    create tile=file id=dir_list dir=APPDIR/MYDATA/temp
+    create tile=title text="L06 FILE LIST" sty=bold
+    create tile=item1 id=#file_name sty=italicbold s=34 c=red
+    create tile=item2 id=#file_length sty=bold c=blue
+
+    call list=ccc
+END
+
+END SCENE

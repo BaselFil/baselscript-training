@@ -1,0 +1,371 @@
+// TEST: R20
+// CHECK: real dedicated two-database regression script; body unchanged
+// EXPECT: OK; TEST_A and TEST_B remain isolated and all internal checks pass
+
+SCENE=1 title="Test: zwei Datenbanken"
+
+//////////////////////////////////////////////////////////////
+// Test für zwei getrennte SQLite-Datenbanken.
+//
+// Der Test erstellt:
+//
+// <APPDIR>/databases/TEST_A.db
+//     Tabelle: test_a_data
+//
+// <APPDIR>/databases/TEST_B.db
+//     Tabelle: test_b_data
+//
+// Danach wird zwischen beiden Datenbanken gewechselt.
+// In jeder Datenbank werden:
+// - die vorhandenen fachlichen Tabellen gelesen;
+// - ein eigener Testdatensatz gelesen;
+// - das Fehlen der Tabelle aus der anderen Datenbank geprüft.
+//////////////////////////////////////////////////////////////
+
+SECTION init
+
+    call section=run_test
+
+END
+
+
+//////////////////////////////////////////////////////////////
+// Gesamttest
+//////////////////////////////////////////////////////////////
+SECTION run_test
+
+    #test_ok = "1"
+    #test_error = ""
+
+    call section=create_database_a
+
+    if #test_ok != "1"
+        call section=show_error
+        return
+    endif
+
+    call section=create_database_b
+
+    if #test_ok != "1"
+        call section=show_error
+        return
+    endif
+
+    call section=check_database_a
+
+    if #test_ok != "1"
+        call section=show_error
+        return
+    endif
+
+    call section=check_database_b
+
+    if #test_ok != "1"
+        call section=show_error
+        return
+    endif
+
+    call section=show_result
+
+END
+
+
+//////////////////////////////////////////////////////////////
+// TEST_A erstellen
+//////////////////////////////////////////////////////////////
+SECTION create_database_a
+
+    #_database_result = "0"
+
+    db_use "TEST_A"
+
+    if #_database_result != "1"
+        #test_ok = "0"
+        #test_error = $concate( \
+            "TEST_A konnte nicht geöffnet werden: ", \
+            #_error)
+        return
+    endif
+
+    #database_a_path = #_database_path
+
+    SQL_CREATE_TABLE table(test_a_data) \
+        fields(id:INTEGER_PRIMARY_KEY,value:TEXT)
+
+    SQL_SELECT_COUNT TABLE(test_a_data) \
+        OUTPUT(#database_a_count)
+
+    if #database_a_count == "0"
+
+        #database_a_seed = "Datensatz aus TEST_A"
+
+        SQL_INSERT INTO test_a_data(value) \
+            VALUES(#database_a_seed)
+
+    endif
+
+END
+
+
+//////////////////////////////////////////////////////////////
+// TEST_B erstellen
+//////////////////////////////////////////////////////////////
+SECTION create_database_b
+
+    #_database_result = "0"
+
+    db_use "TEST_B"
+
+    if #_database_result != "1"
+        #test_ok = "0"
+        #test_error = $concate( \
+            "TEST_B konnte nicht geöffnet werden: ", \
+            #_error)
+        return
+    endif
+
+    #database_b_path = #_database_path
+
+    SQL_CREATE_TABLE table(test_b_data) \
+        fields(id:INTEGER_PRIMARY_KEY,value:TEXT)
+
+    SQL_SELECT_COUNT TABLE(test_b_data) \
+        OUTPUT(#database_b_count)
+
+    if #database_b_count == "0"
+
+        #database_b_seed = "Datensatz aus TEST_B"
+
+        SQL_INSERT INTO test_b_data(value) \
+            VALUES(#database_b_seed)
+
+    endif
+
+END
+
+
+//////////////////////////////////////////////////////////////
+// TEST_A erneut auswählen und prüfen
+//////////////////////////////////////////////////////////////
+SECTION check_database_a
+
+    #_database_result = "0"
+
+    db_use "TEST_A"
+
+    if #_database_result != "1"
+        #test_ok = "0"
+        #test_error = "TEST_A konnte nicht erneut geöffnet werden"
+        return
+    endif
+
+    // Eigene Tabelle muss vorhanden sein.
+    SQL_EXIST test_a_data \
+        OUTPUT(#database_a_own_table)
+
+    // Tabelle von TEST_B darf hier nicht vorhanden sein.
+    SQL_EXIST test_b_data \
+        OUTPUT(#database_a_foreign_table)
+
+    // Eigenen Testwert lesen.
+    SQL_SELECT value \
+        FROM test_a_data \
+        ORDER BY id \
+        LIMIT 1 \
+        OUTPUT(#database_a_value)
+
+    /*
+     * Alle fachlichen Tabellen aus sqlite_master exportieren.
+     * SQLite-interne Tabellen werden ausgeblendet.
+     */
+    SQL_SELECT name \
+        FROM sqlite_master \
+        WHERE type='table' \
+          AND name NOT LIKE 'sqlite_%' \
+        ORDER BY name \
+        OUTPUT(#_directory_files,"test_a_tables.csv")
+
+    file id=test_a_tables.csv \
+        dir=#_directory_files \
+        record=(#database_a_table_name)
+
+    read file=test_a_tables.csv \
+        dir=#_directory_files
+
+    #database_a_table_count = #_records
+    #database_a_table = ""
+
+    if #database_a_table_count != "0"
+        #database_a_table = \
+            #database_a_table_name_array[0]
+    endif
+
+    if #database_a_own_table != "1"
+        #test_ok = "0"
+        #test_error = "test_a_data fehlt in TEST_A"
+        return
+    endif
+
+    if #database_a_foreign_table != "0"
+        #test_ok = "0"
+        #test_error = \
+            "test_b_data wurde fälschlich in TEST_A gefunden"
+        return
+    endif
+
+    if #database_a_value != "Datensatz aus TEST_A"
+        #test_ok = "0"
+        #test_error = "Falscher Datensatz in TEST_A"
+        return
+    endif
+
+END
+
+
+//////////////////////////////////////////////////////////////
+// TEST_B erneut auswählen und prüfen
+//////////////////////////////////////////////////////////////
+SECTION check_database_b
+
+    #_database_result = "0"
+
+    db_use "TEST_B"
+
+    if #_database_result != "1"
+        #test_ok = "0"
+        #test_error = "TEST_B konnte nicht erneut geöffnet werden"
+        return
+    endif
+
+    // Eigene Tabelle muss vorhanden sein.
+    SQL_EXIST test_b_data \
+        OUTPUT(#database_b_own_table)
+
+    // Tabelle von TEST_A darf hier nicht vorhanden sein.
+    SQL_EXIST test_a_data \
+        OUTPUT(#database_b_foreign_table)
+
+    // Eigenen Testwert lesen.
+    SQL_SELECT value \
+        FROM test_b_data \
+        ORDER BY id \
+        LIMIT 1 \
+        OUTPUT(#database_b_value)
+
+    // Fachliche Tabellen aus TEST_B exportieren.
+    SQL_SELECT name \
+        FROM sqlite_master \
+        WHERE type='table' \
+          AND name NOT LIKE 'sqlite_%' \
+        ORDER BY name \
+        OUTPUT(#_directory_files,"test_b_tables.csv")
+
+    file id=test_b_tables.csv \
+        dir=#_directory_files \
+        record=(#database_b_table_name)
+
+    read file=test_b_tables.csv \
+        dir=#_directory_files
+
+    #database_b_table_count = #_records
+    #database_b_table = ""
+
+    if #database_b_table_count != "0"
+        #database_b_table = \
+            #database_b_table_name_array[0]
+    endif
+
+    if #database_b_own_table != "1"
+        #test_ok = "0"
+        #test_error = "test_b_data fehlt in TEST_B"
+        return
+    endif
+
+    if #database_b_foreign_table != "0"
+        #test_ok = "0"
+        #test_error = \
+            "test_a_data wurde fälschlich in TEST_B gefunden"
+        return
+    endif
+
+    if #database_b_value != "Datensatz aus TEST_B"
+        #test_ok = "0"
+        #test_error = "Falscher Datensatz in TEST_B"
+        return
+    endif
+
+END
+
+
+//////////////////////////////////////////////////////////////
+// Erfolgreiches Ergebnis
+//////////////////////////////////////////////////////////////
+SECTION show_result
+
+    #test_report = "TEST ERFOLGREICH"
+
+    #test_report = $concate( \
+        #test_report, \
+        ~newline, \
+        ~newline, \
+        "TEST_A", \
+        ~newline, \
+        "Pfad: ", \
+        #database_a_path, \
+        ~newline, \
+        "Tabelle: ", \
+        #database_a_table, \
+        ~newline, \
+        "Datensatz: ", \
+        #database_a_value, \
+        ~newline, \
+        "Fremde Tabelle gefunden: ", \
+        #database_a_foreign_table)
+
+    #test_report = $concate( \
+        #test_report, \
+        ~newline, \
+        ~newline, \
+        "TEST_B", \
+        ~newline, \
+        "Pfad: ", \
+        #database_b_path, \
+        ~newline, \
+        "Tabelle: ", \
+        #database_b_table, \
+        ~newline, \
+        "Datensatz: ", \
+        #database_b_value, \
+        ~newline, \
+        "Fremde Tabelle gefunden: ", \
+        #database_b_foreign_table)
+
+    message_long #test_report
+log #test_report
+END
+
+
+//////////////////////////////////////////////////////////////
+// Fehlerausgabe
+//////////////////////////////////////////////////////////////
+SECTION show_error
+
+    message_long $concate( \
+        "TEST FEHLGESCHLAGEN", \
+        ~newline, \
+        #test_error, \
+        ~newline, \
+        "Aktuelle Datenbank: ", \
+        #_database, \
+        ~newline, \
+        "Pfad: ", \
+        #_database_path, \
+        ~newline, \
+        "Technischer Fehler: ", \
+        #_error)
+
+END
+
+
+END SCENE
+
