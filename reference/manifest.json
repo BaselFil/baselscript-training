@@ -1,11 +1,36 @@
 {
-  "schema": "baselscript-reference-manifest-v2",
-  "reference_version": "clean-v1-2026-09-02",
-  "path_base": "repository_root",
+  "schema": "baselscript-reference-manifest-v3",
+  "reference_version": "universal-v1-2026-09-02",
+  "compatibility": {
+    "previous_schema": "baselscript-reference-manifest-v2",
+    "path_arrays_preserved": true,
+    "rule": "Existing path-based consumers may continue to use all original path arrays unchanged. Consumers that require direct URLs must resolve each path through raw_urls."
+  },
+  "repository": {
+    "owner": "BaselFil",
+    "name": "baselscript-training",
+    "branch": "main",
+    "path_base": "repository_root",
+    "raw_base_url": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/"
+  },
   "entrypoints": [
     "reference/manifest.json",
     "reference/AI_CONTEXT.md"
   ],
+  "deepseek_policy": {
+    "requires_direct_urls": true,
+    "manifest_url": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/manifest.json",
+    "context_url": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/AI_CONTEXT.md",
+    "resolution_rule": "For every path selected from baseline_required, task_routes, machine_contract or another manifest field, read the exact matching URL from raw_urls. Do not substitute a normal github.com page URL.",
+    "load_order": [
+      "entrypoints",
+      "baseline_required",
+      "applicable task_routes",
+      "applicable route_expansion_rules",
+      "machine contract only as routed or explicitly required"
+    ],
+    "do_not_invent_missing_urls": true
+  },
   "machine_contract": {
     "directory": "reference/language",
     "files": [
@@ -220,5 +245,65 @@
   "bootstrap_urls": [
     "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/manifest.json",
     "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/AI_CONTEXT.md"
-  ]
+  ],
+  "raw_urls": {
+    "reference/manifest.json": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/manifest.json",
+    "reference/AI_CONTEXT.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/AI_CONTEXT.md",
+    "reference/language/functions.def": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/language/functions.def",
+    "reference/language/actions.def": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/language/actions.def",
+    "reference/language/blocks.def": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/language/blocks.def",
+    "reference/language/conditions.def": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/language/conditions.def",
+    "reference/language/scene.def": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/language/scene.def",
+    "reference/language/baselscript-language.json": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/language/baselscript-language.json",
+    "reference/knowledge/generation_rules.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/knowledge/generation_rules.md",
+    "reference/semantics/00_INDEX.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/00_INDEX.md",
+    "reference/semantics/01_core_language.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/01_core_language.md",
+    "reference/semantics/02_structure.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/02_structure.md",
+    "reference/patterns/01_structure_execution.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/patterns/01_structure_execution.md",
+    "reference/semantics/03_call_execution.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/03_call_execution.md",
+    "reference/semantics/04_control_flow.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/04_control_flow.md",
+    "reference/patterns/08_control_flow_lifecycle.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/patterns/08_control_flow_lifecycle.md",
+    "reference/semantics/05_ui.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/05_ui.md",
+    "reference/patterns/02_ui_lifecycle.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/patterns/02_ui_lifecycle.md",
+    "reference/semantics/19_form.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/19_form.md",
+    "reference/semantics/21_list.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/21_list.md",
+    "reference/semantics/20_dialog.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/20_dialog.md",
+    "reference/semantics/06_files_data.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/06_files_data.md",
+    "reference/patterns/03_files_data_lifecycle.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/patterns/03_files_data_lifecycle.md",
+    "reference/semantics/07_arrays_hash.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/07_arrays_hash.md",
+    "reference/patterns/05_arrays_functions_lifecycle.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/patterns/05_arrays_functions_lifecycle.md",
+    "reference/semantics/08_functions_strings.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/08_functions_strings.md",
+    "reference/semantics/09_math.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/09_math.md",
+    "reference/semantics/10_date_time.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/10_date_time.md",
+    "reference/semantics/11_database_sql.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/11_database_sql.md",
+    "reference/patterns/04_database_sql_lifecycle.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/patterns/04_database_sql_lifecycle.md",
+    "reference/semantics/12_security_crypto.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/12_security_crypto.md",
+    "reference/patterns/07_security_crypto_lifecycle.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/patterns/07_security_crypto_lifecycle.md",
+    "reference/semantics/13_graphics.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/13_graphics.md",
+    "reference/patterns/06_graphics_charts_lifecycle.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/patterns/06_graphics_charts_lifecycle.md",
+    "reference/semantics/14_charts.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/14_charts.md",
+    "reference/semantics/15_network_media_device.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/15_network_media_device.md",
+    "reference/patterns/09_network_device_lifecycle.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/patterns/09_network_device_lifecycle.md",
+    "reference/semantics/16_script_meta.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/16_script_meta.md",
+    "reference/patterns/10_script_meta_lifecycle.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/patterns/10_script_meta_lifecycle.md",
+    "reference/semantics/17_testing.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/17_testing.md",
+    "reference/semantics/18_platform.md": "https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/18_platform.md"
+  },
+  "consumer_rules": {
+    "online_gpt": {
+      "use": "Existing uploaded Knowledge files and path-based routing.",
+      "path_arrays": "Use original path arrays exactly as before.",
+      "raw_urls_required": false
+    },
+    "deepseek": {
+      "use": "Direct raw GitHub URLs only.",
+      "path_arrays": "Use paths for route selection, then resolve every selected file through raw_urls.",
+      "raw_urls_required": true
+    },
+    "local_loader": {
+      "use": "May use local repository paths or raw_urls.",
+      "path_arrays": "Existing v2 path-array logic remains compatible.",
+      "raw_urls_required": false
+    }
+  }
 }
