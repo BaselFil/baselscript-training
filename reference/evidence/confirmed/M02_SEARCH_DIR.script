@@ -1,9 +1,0 @@
-// MANUAL TEST: M02 - Windows recursive installation-directory search
-// Replace the filename below with a file that exists below the BaselScript installation directory.
-
-SCENE=1
-SECTION init
-    search_dir file=manifest.json
-    trace $concate("SELECTED_DIRECTORY=",#_SELECTED_DIRECTORY)
-END
-END SCENE

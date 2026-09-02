@@ -1,5 +1,0 @@
-W01_DB_METADATA.script              : NOT RUN
-W02_TRACE_DELAY.script              : NOT RUN
-W03_HASH_PARSING_REMOVE.script      : NOT RUN
-W04_UPDATE_ALL_RECORDS.script       : NOT RUN
-W05_REPLACE_FILE.script             : NOT RUN

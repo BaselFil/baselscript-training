@@ -1,9 +1,0 @@
-// MANUAL TEST: M03 - thumbnail runtime family
-// Uses the same parameter style as real corpus examples. Ensure sample.jpg exists first.
-
-SCENE=1
-SECTION init
-    thumbnail i_d=#_directory_images_examples i_f=sample.jpg o_d=#_directory_thumbnails o_f=weak_test_thumbnail.png w=65 h=65
-    trace "M03 DONE"
-END
-END SCENE

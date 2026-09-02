@@ -1,9 +1,0 @@
-// MANUAL TEST: M04 - output/message UI
-// EXPECT: both commands route through the BaselScript message canvas/output dispatcher.
-
-SCENE=1
-SECTION init
-    echo "M04 ECHO"
-    message_short "M04 MESSAGE_SHORT"
-END
-END SCENE
