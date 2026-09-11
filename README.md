@@ -1,36 +1,16 @@
-# BaselScript Reference - Clean v1
+## AI / LLM users — start here
 
-This is a clean rebuild of the BaselScript AI/reference package.
+If you are using ChatGPT, DeepSeek, Claude, Gemini, a local model, or another AI system with BaselScript, give it this repository URL and tell it:
 
-## Design
+> Open this repository and follow `AI_START.md` before answering any BaselScript question.
 
-The package separates three concerns:
+Canonical AI entry point:
 
-- `language/` - machine-readable validator/export contract
-- `semantics/` - source-level usage and verified behavior
-- `evidence/` - coverage, removed and unverified constructs
+- [`AI_START.md`](AI_START.md)
 
-This prevents a machine catalog from being mistaken for a complete programming-language manual.
+Machine/reference entry points used by `AI_START.md`:
 
-## Update workflow
+- [`reference/manifest.json`](reference/manifest.json)
+- [`reference/AI_CONTEXT.md`](reference/AI_CONTEXT.md)
 
-1. Update the runtime/validator `.def` files in the BaselScript installation.
-2. Regenerate `baselscript-language.json`.
-3. Copy the six machine-contract files into `language/` unchanged.
-4. Update only the semantic files affected by verified runtime/regression evidence.
-5. Run `regression/AI_REFERENCE_TESTS.md`.
-6. Do not manually edit the generated JSON.
-
-## Current machine summary
-
-The imported generated JSON reports:
-
-- 247 functions
-- 126 actions
-- 7 blocks
-- 1 SCENE grammar
-- 16 condition entries
-- `loaded = true`
-- no load errors
-
-Audit status: `clean-v1-audited` - automated consistency audit passed; intentionally partial semantic areas remain marked as partial.
+If the AI cannot access GitHub, upload the repository or the `reference/` directory instead.
