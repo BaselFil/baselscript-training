@@ -1,174 +1,101 @@
-# BaselScript — AI Start Here
+# BaselScript — AI Start / Sync Protocol
 
-This repository contains the current public reference for the BaselScript language.
+This repository is the canonical public reference for BaselScript.
 
-If you are an AI assistant, coding agent, IDE agent, or language model and the user asks you to work with BaselScript, **start here before generating or reviewing any BaselScript code**.
+Use one of three modes:
 
-Repository:
-https://github.com/BaselFil/baselscript-training
+## 1. FIRST LOAD
 
-## 1. Load the reference entry points
+If you do not already have a persistent BaselScript reference version:
 
-Read these files completely:
+1. Read `reference/AI_REFERENCE_INDEX.json`.
+2. Read `reference/AI_REFERENCE_FULL.md` completely.
+3. Store/remember its `reference_version` if your environment supports persistent knowledge.
+4. Reply: `BASELSCRIPT REFERENCE LOADED: <reference_version>`.
 
-- `reference/manifest.json`
-- `reference/AI_CONTEXT.md`
+## 2. UPDATE CHECK
 
-Raw URLs:
+If you already have a persistent BaselScript reference:
 
-- https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/manifest.json
-- https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/AI_CONTEXT.md
+1. Read `reference/AI_REFERENCE_INDEX.json`.
+2. Compare its `reference_version` with your stored BaselScript reference version.
+3. If equal: do not reload the full reference.
+4. If your stored version equals `previous_reference_version`: read `reference/AI_REFERENCE_UPDATE.md`.
+5. If your stored version is older or unknown: reload `reference/AI_REFERENCE_FULL.md`.
 
-Do not merely acknowledge these files. Read their contents.
+This prevents missed intermediate changes.
 
-## 2. Load the mandatory baseline
+## 3. TASK LOAD
 
-From `reference/manifest.json`, load every file listed in `baseline_required`.
+If you have direct repository access and want minimal context:
 
-All paths in the manifest are relative to the repository root.
-
-Example:
-
-`reference/semantics/19_form.md`
-
-becomes:
-
-`https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/semantics/19_form.md`
-
-## 3. Route every BaselScript task
-
-For every BaselScript request in the conversation:
-
-1. classify the task using all matching categories in `task_routes`;
-2. load every file from every matching route;
-3. apply `route_expansion_rules`;
-4. combine routes when a task spans several domains;
-5. read routed semantic files completely before generating code.
-
-Do not stop after the first matching route.
+1. Read `reference/manifest.json`.
+2. Read `reference/AI_CONTEXT.md`.
+3. Load every file in `baseline_required`.
+4. Match every relevant `task_routes` category.
+5. Apply `route_expansion_rules`.
+6. Load the union of all matching routed files.
+7. Read routed semantic files completely before generating code.
 
 Examples:
 
 - file-backed FORM -> `form` + `files_data`
 - file-backed LIST -> `list` + `files_data`
 - landscape FORM -> `form` + `platform`
-- SQL rows displayed in a LIST -> `database_sql` + `files_data` + `list` + `ui`
+- SQL rows in LIST -> `database_sql` + `files_data` + `list` + `ui`
 - chart from file -> `charts` + `files_data`
-- encrypted application database -> `database_sql` + `security_crypto`
 
-## 4. Source authority
+## Source authority
 
-Follow the precedence defined by `reference/AI_CONTEXT.md`.
+Use:
 
-As a practical rule:
-
-confirmed current runtime/regression
-> current language contract
-> current semantic documentation
-> current composition patterns
+confirmed runtime/regression
+> current machine contract
+> current semantics
+> current patterns
 > repeated real-script evidence
 > rare/historical evidence
 
-Old examples must not override newer verified semantic rules.
+Do not let old examples override newer runtime-tested semantics.
 
-## 5. Do not invent BaselScript syntax
+## Never invent BaselScript
 
-Use only syntax documented by the current reference.
+Do not invent actions, functions, parameters, blocks, conditions, CALL targets,
+UI tiles, graphics/chart syntax, file syntax, SQL syntax, system variables, or
+platform APIs.
 
-Do not invent actions, functions, parameters, blocks, condition operators, closing keywords, CALL targets, UI tiles, graphics tiles, chart syntax, file syntax, SQL syntax, system variables, or platform APIs.
+Do not import syntax from other programming languages.
 
-Do not import syntax from Python, JavaScript, Java, C#, BASIC, or another language.
-
-If the current reference does not document the required source form, report:
+If the current reference does not document a required form, report:
 
 `UNVERIFIED IN CURRENT BASELSCRIPT REFERENCE`
 
-Then state which exact file or rule is missing. Do not fabricate a plausible replacement.
+and identify the missing rule.
 
-## 6. Generate complete lifecycles
+## Complete-script rule
 
-If the user asks for a complete script, generate the complete documented lifecycle, not isolated valid lines.
+When asked for a complete script, generate the complete documented lifecycle,
+not isolated commands.
 
-Examples:
+## Physical-line rule
 
-FORM:
-SCENE
--> SECTION init
--> optional orientation/data setup
--> draw form
--> FORM
--> target SECTION/ACTION
--> END SCENE
+Every continued BaselScript physical line ends with `\`.
 
-File-backed LIST:
-SCENE
--> SECTION init
-   -> file declaration
-   -> read
-   -> call list
--> LIST
-   -> tile=file
-   -> tile=item
-   -> optional tile=select
--> target SECTION
--> END SCENE
+## Limited web/repository access
 
-Application database:
-db_use
--> check result
--> SQL operations
+If repository navigation is limited, use:
 
-Graphics:
-graphic SCENE
--> clear canvas
--> draw graphic tiles
--> draw canvas
+https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/AI_REFERENCE_FULL.md
 
-Chart:
-CHART_BEGIN
--> CHART_SET
--> values source
--> CHART_DRAW
+For update checks:
 
-## 7. Preserve physical-line continuation
+https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/AI_REFERENCE_INDEX.json
 
-BaselScript multiline statements require explicit continuation.
+For the current one-step update:
 
-Every continued physical line must end with `\\`.
+https://raw.githubusercontent.com/BaselFil/baselscript-training/main/reference/AI_REFERENCE_UPDATE.md
 
-Parentheses, commas, and indentation do not imply continuation.
+If these cannot be read, ask the user to upload the repository/reference files.
+Do not continue from general programming knowledge.
 
-Example:
-
-```baselscript
-message $concat( \\
-    #first_name," ", \\
-    #last_name)
-```
-
-## 8. If repository access is unavailable
-
-If you cannot open GitHub or raw GitHub URLs:
-
-1. do not generate BaselScript from memory or general programming knowledge;
-2. tell the user that repository access is unavailable;
-3. ask the user to upload the repository or the `reference/` directory;
-4. after upload, start again from `reference/manifest.json` and `reference/AI_CONTEXT.md`.
-
-## 9. Confirmation
-
-After successfully reading:
-
-- `reference/manifest.json`
-- `reference/AI_CONTEXT.md`
-- every file in `baseline_required`
-
-reply only:
-
-`BASELSCRIPT REFERENCE LOADED`
-
-Then wait for the user's BaselScript task.
-
----
-
-This procedure is repository grounding, not model fine-tuning. A new AI session should derive BaselScript behavior from the current repository rather than hidden chat history.
+The repository is the source of truth. Persistent AI knowledge is only a cached copy.

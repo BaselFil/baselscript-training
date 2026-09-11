@@ -1,16 +1,19 @@
-## AI / LLM users — start here
+## AI / LLM — automatic BaselScript start
 
-If you are using ChatGPT, DeepSeek, Claude, Gemini, a local model, or another AI system with BaselScript, give it this repository URL and tell it:
+AI assistants and coding agents: read [`AI_START.md`](AI_START.md) before answering
+any BaselScript question.
 
-> Open this repository and follow `AI_START.md` before answering any BaselScript question.
+The protocol supports:
 
-Canonical AI entry point:
+- one-time FIRST LOAD from `reference/AI_REFERENCE_FULL.md`;
+- lightweight UPDATE CHECK through `reference/AI_REFERENCE_INDEX.json`;
+- one-step incremental synchronization through `reference/AI_REFERENCE_UPDATE.md`;
+- task-specific loading through `reference/manifest.json`.
 
-- [`AI_START.md`](AI_START.md)
+For a new AI session, provide this repository URL:
 
-Machine/reference entry points used by `AI_START.md`:
+https://github.com/BaselFil/baselscript-training
 
-- [`reference/manifest.json`](reference/manifest.json)
-- [`reference/AI_CONTEXT.md`](reference/AI_CONTEXT.md)
+and say:
 
-If the AI cannot access GitHub, upload the repository or the `reference/` directory instead.
+> Use this repository as the BaselScript reference and follow its AI start protocol.
